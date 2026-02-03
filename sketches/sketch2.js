@@ -8,6 +8,7 @@ registerSketch('sk2', function (p) {
     p.background(255);
     p.drawCoffeeFill();
     p.drawCoffeeCup();
+    p.drawCupLabels();
   }
 
   p.drawCoffeeCup = function() {
@@ -63,6 +64,23 @@ registerSketch('sk2', function (p) {
     p.endShape(p.CLOSE);
   };
   
+  p.drawCupLabels = function () {
+    p.fill(0);
+    p.noStroke();
+    p.textAlign(p.LEFT, p.CENTER);
+    p.textSize(12);
+  
+    // Must match your cup geometry
+    let topY = p.height / 2 + 100;
+    let bottomY = p.height / 2 + 250;
+    let midY = (topY + bottomY) / 2;
+  
+    let labelX = p.width / 2 + 80; // position left of cup
+  
+    p.text("End of day", labelX, topY);
+    p.text("12:00 PM", labelX, midY);
+    p.text("12:00 AM", labelX, bottomY);
+  };
 
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
