@@ -5,17 +5,25 @@ registerSketch('sk2', function (p) {
     p.createCanvas(800, 800);
   };
   p.draw = function () {
-    p.background(220);
-    p.fill(100, 150, 240);
-    p.textSize(32);
+    p.background(0);
+    p.clock();
+  }
+
+  p.clock = function () {
+    let hr = p.hour();
+    let mn = p.minute();
+    let sc = p.second();
+
+    p.fill("pink");
+    // p.textFont(clockFont);
     p.textAlign(p.CENTER, p.CENTER);
-    let h = p.hour();
-    let m = p.minute();
-    let s = p.second();
+    p.textSize(p.width / 10);
+    let noon = hr >= 12 ? " PM" : " AM"
+    if (mn < 10)
+      mn = "0" + mn
+    hr %= 12
+    p.text(hr + ":" + mn + ":" + sc + noon, p.width / 2, p.height / 2);
 
-    let timeStr = `${p.nf(h, 2)}:${p.nf(m, 2)}:${p.nf(s, 2)}`;
-
-    p.text(timeStr, p.width / 2, p.height / 2);
-  };
+  }
   p.windowResized = function () { p.resizeCanvas(p.windowWidth, p.windowHeight); };
 });
