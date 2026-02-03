@@ -1,7 +1,7 @@
 // Instance-mode sketch for tab 2
 registerSketch('sk2', function (p) {
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(800, 800);
   };
   p.draw = function () {
     p.background(220);
