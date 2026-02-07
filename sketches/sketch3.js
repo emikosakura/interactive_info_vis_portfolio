@@ -14,13 +14,28 @@ registerSketch('sk3', function (p) {
     p.ellipse(0, 0, 300, 300);
 
     for (let i = 0; i < 12; i++) {
-      let angle = p.TWO_PI / 12 * i - p.HALF_PI; 
+      let angle = p.TWO_PI / 12 * (i + 1) - p.HALF_PI; 
       let x1 = 120 * p.cos(angle);
       let y1 = 120 * p.sin(angle);
       let x2 = 140 * p.cos(angle);
       let y2 = 140 * p.sin(angle);
+
+      // restore stroke settings for tick marks
+      p.stroke(0);
       p.line(x1, y1, x2, y2);
+
+      // draw numbers
+      let numX = 160 * p.cos(angle);
+      let numY = 160 * p.sin(angle);
+      p.textAlign(p.CENTER, p.CENTER);
+      p.textSize(16);
+      p.noStroke(); 
+      p.fill(0); 
+      p.text(i + 1, numX, numY);
     }
+
+    // restore stroke settings for clock hands
+    p.stroke(0);
 
     // get current time
     let hr = p.hour();
