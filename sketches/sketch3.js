@@ -13,11 +13,11 @@ registerSketch('sk3', function (p) {
     // determine light color based on time of day
     let lightColor;
     if (hr >= 6 && hr < 12) { // Morning (cool)
-      lightColor = p.color(173, 216, 230, 100); // Light blue
+      lightColor = p.color(173, 216, 230, 100); // Light blue (matches legend)
     } else if (hr >= 12 && hr < 18) { // Midday (neutral)
-      lightColor = p.color(255, 255, 224, 100); // Light yellow
+      lightColor = p.color(255, 255, 224, 100); // Light yellow (matches legend)
     } else { // Evening (warm)
-      lightColor = p.color(255, 182, 193, 100); // Light pink
+      lightColor = p.color(255, 165, 0, 100); // Orange (matches legend)
     }
 
     // draw luminescent light with a glowing effect
@@ -75,6 +75,33 @@ registerSketch('sk3', function (p) {
     // draw second hand
     p.strokeWeight(2);
     p.line(0, 0, 120 * p.cos(secondAngle), 120 * p.sin(secondAngle));
+
+    // draw swatch legend
+    const legendX = 250; // Shifted slightly to the right
+    const legendY = -300;
+    const swatchSize = 20;
+    const spacing = 30;
+
+    // Morning (cool)
+    p.noStroke();
+    p.fill(173, 216, 230); // Light blue
+    p.ellipse(legendX, legendY, swatchSize, swatchSize);
+    p.fill(0);
+    p.textAlign(p.LEFT, p.CENTER);
+    p.textSize(12);
+    p.text("Morning (cool)", legendX + spacing, legendY);
+
+    // Midday (neutral)
+    p.fill(255, 255, 224); // Light yellow
+    p.ellipse(legendX, legendY + spacing, swatchSize, swatchSize);
+    p.fill(0);
+    p.text("Midday (neutral)", legendX + spacing, legendY + spacing);
+
+    // Evening (warm)
+    p.fill(255, 165, 0); // Orange
+    p.ellipse(legendX, legendY + 2 * spacing, swatchSize, swatchSize);
+    p.fill(0);
+    p.text("Evening (warm)", legendX + spacing, legendY + 2 * spacing);
   };
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
