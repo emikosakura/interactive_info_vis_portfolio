@@ -55,3 +55,8 @@ canvas {
   height: auto;
   display: block;
 }
+
+img {
+  width: 400px;
+  height: auto;
+}
