@@ -21,6 +21,28 @@ registerSketch('sk3', function (p) {
       let y2 = 140 * p.sin(angle);
       p.line(x1, y1, x2, y2);
     }
+
+    // get current time
+    let hr = p.hour();
+    let mn = p.minute();
+    let sc = p.second();
+
+    // calculate angles for hands
+    let secondAngle = p.map(sc, 0, 60, 0, p.TWO_PI) - p.HALF_PI;
+    let minuteAngle = p.map(mn + sc / 60, 0, 60, 0, p.TWO_PI) - p.HALF_PI;
+    let hourAngle = p.map((hr % 12) + mn / 60, 0, 12, 0, p.TWO_PI) - p.HALF_PI;
+
+    // draw hour hand
+    p.strokeWeight(6);
+    p.line(0, 0, 70 * p.cos(hourAngle), 70 * p.sin(hourAngle));
+
+    // draw minute hand
+    p.strokeWeight(4);
+    p.line(0, 0, 100 * p.cos(minuteAngle), 100 * p.sin(minuteAngle));
+
+    // draw second hand
+    p.strokeWeight(2);
+    p.line(0, 0, 120 * p.cos(secondAngle), 120 * p.sin(secondAngle));
   };
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
