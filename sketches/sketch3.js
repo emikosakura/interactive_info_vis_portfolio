@@ -4,7 +4,7 @@ registerSketch('sk3', function (p) {
     p.createCanvas(800, 800);
   };
   p.draw = function () {
-    p.background(240, 200, 200);
+    p.background(255, 255, 255); 
     p.translate(p.width / 2, p.height / 2);
 
     // clock face
