@@ -7,6 +7,28 @@ registerSketch('sk3', function (p) {
     p.background(255, 255, 255); 
     p.translate(p.width / 2, p.height / 2);
 
+    let hr = p.hour();
+    let mn = p.minute();
+    let sc = p.second();
+    // determine light color based on time of day
+    let lightColor;
+    if (hr >= 6 && hr < 12) { // Morning (cool)
+      lightColor = p.color(173, 216, 230, 100); // Light blue
+    } else if (hr >= 12 && hr < 18) { // Midday (neutral)
+      lightColor = p.color(255, 255, 224, 100); // Light yellow
+    } else { // Evening (warm)
+      lightColor = p.color(255, 182, 193, 100); // Light pink
+    }
+
+    // draw luminescent light with a glowing effect
+    for (let i = 0; i < 10; i++) {
+      let alpha = 100 - i * 10; // Gradually reduce opacity
+      let size = 400 + i * 20; // Gradually increase size
+      p.noStroke();
+      p.fill(lightColor.levels[0], lightColor.levels[1], lightColor.levels[2], alpha);
+      p.ellipse(0, 0, size, size);
+    }
+
     // clock face
     p.noFill();
     p.stroke(0);
@@ -36,11 +58,6 @@ registerSketch('sk3', function (p) {
 
     // restore stroke settings for clock hands
     p.stroke(0);
-
-    // get current time
-    let hr = p.hour();
-    let mn = p.minute();
-    let sc = p.second();
 
     // calculate angles for hands
     let secondAngle = p.map(sc, 0, 60, 0, p.TWO_PI) - p.HALF_PI;
