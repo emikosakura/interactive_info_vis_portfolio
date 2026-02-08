@@ -26,6 +26,14 @@ registerSketch('sk4', function (p) {
   p.draw = function () {
     p.background(255, 255, 255);
 
+    // calculate progress
+    const durMs = minutesToMs(currentPhaseMinutes());
+    const tMs = p.constrain(getElapsedMs(), 0, durMs);
+    const remainMs = p.max(0, durMs - tMs);
+    const progress = p.constrain(tMs / durMs, 0, 1);
+
+    if (running && remainMs <= 0) onPhaseComplete();
+
     // Center the espresso machine
     let centerX = p.width / 2;
     let centerY = p.height / 2;
