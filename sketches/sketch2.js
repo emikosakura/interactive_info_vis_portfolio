@@ -1,14 +1,52 @@
 // Instance-mode sketch for tab 2
 registerSketch('sk2', function (p) {
 
+  function isMouseOverCup(cx, topY, bottomY, halfW) {
+    return (p.mouseX >= cx - halfW &&
+            p.mouseX <= cx + halfW &&
+            p.mouseY >= topY &&
+            p.mouseY <= bottomY);
+  }
+
   p.setup = function () {
     p.createCanvas(500, 500);
+  
   };
   p.draw = function () {
     p.background(255);
-    p.drawCoffeeFill();
+    const g = p.drawCoffeeFill();
     p.drawCoffeeCup();
     p.drawCupLabels();
+
+    if (g && isMouseOverCup(g.cx, g.topY, g.bottomY, g.halfW)) {
+
+      // format current time
+      let hr = p.hour();
+      let mn = p.minute();
+    
+      let ampm = hr >= 12 ? "PM" : "AM";
+      let hr12 = hr % 12;
+      if (hr12 === 0) hr12 = 12;
+    
+      let timeStr = `${hr12}:${p.nf(mn,2)} ${ampm}`;
+    
+      // draw tooltip
+      p.textSize(13);
+      let pad = 8;
+      let w = p.textWidth(timeStr) + pad*2;
+      let h = 24;
+    
+      let tx = p.mouseX + 12;
+      let ty = p.mouseY - 12;
+    
+      p.noStroke();
+      p.fill(255);
+      p.rect(tx, ty, w, h, 6);
+    
+      p.fill(0);
+      p.textAlign(p.LEFT, p.CENTER);
+      p.text(timeStr, tx + pad, ty + h/2);
+    }
   }
 
   p.drawCoffeeCup = function() {
@@ -69,7 +107,7 @@ registerSketch('sk2', function (p) {
 
     // fill level (top -> bottom)
     let fillY = p.lerp(topY, bottomY, t);
-
+    let halfW = 55;
     let leftX = cx - 55;
     let rightX = cx + 55;
 
@@ -85,6 +123,7 @@ registerSketch('sk2', function (p) {
 
     p.stroke(255,120);
     p.line(leftX+3, fillY+2, rightX-3, fillY+2);
+    return { cx, topY, bottomY, halfW };
 
   };
   
@@ -105,7 +144,6 @@ registerSketch('sk2', function (p) {
     p.text("9:00 AM", labelX, topY);
     p.text("1:00 PM", labelX, midY);
     p.text("5:00 PM", labelX, bottomY);
-
   };
 
   p.windowResized = function () { p.resizeCanvas(500, 500); };
