@@ -18,6 +18,10 @@ registerSketch('sk4', function (p) {
 
   p.setup = function () {
     p.createCanvas(800, 800);
+
+    buttons.push(makeBtn('Start', 0, 0, toggleRun));
+    buttons.push(makeBtn('Reset', 0, 0, resetPhase));
+    buttons.push(makeBtn('Skip', 0, 0, skipPhase));
   };
   p.draw = function () {
     p.background(255, 255, 255);
