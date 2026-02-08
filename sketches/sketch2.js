@@ -17,7 +17,7 @@ registerSketch('sk2', function (p) {
     p.strokeWeight(4);
   
     let cx = p.width / 2;
-    let cy = p.height * 0.35; 
+    let cy = p.height * 0.40; 
     let topY = cy;
     let bottomY = cy + 150;
   
@@ -63,7 +63,7 @@ registerSketch('sk2', function (p) {
   
     // cup geometry (matches your lines)
     let cx = p.width / 2;
-    let cy = p.height * 0.35; 
+    let cy = p.height * 0.40; 
     let topY = cy;
     let bottomY = cy + 150;
 
@@ -95,7 +95,7 @@ registerSketch('sk2', function (p) {
     p.textSize(12);
   
     // Must match your cup geometry
-    let cy = p.height * 0.35;
+    let cy = p.height * 0.40;
     let topY = cy;
     let bottomY = cy + 150;
     let midY = (topY + bottomY) / 2;
