@@ -1,5 +1,21 @@
 // Instance-mode sketch for tab 4
 registerSketch('sk4', function (p) {
+
+  // Config
+  const WORK_MIN = 25;
+  const SHORT_MIN = 5;
+  const LONG_MIN = 15;
+  const LONG_EVERY = 4;
+
+  // State
+  let phase = 'work';
+  let running = false;
+  let startMs = 0;
+  let elapsedMs = 0;
+  let completedWorks = 0;
+  let totalWorks = 0;
+  const buttons = [];
+
   p.setup = function () {
     p.createCanvas(800, 800);
   };
