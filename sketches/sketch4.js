@@ -80,6 +80,10 @@ registerSketch('sk4', function (p) {
     // Cup body
     p.rect(cupX, cupY, cupW, cupH, 12);
 
+    // Handle on RIGHT side
+    p.strokeWeight(2);
+    p.noFill();
+    p.arc(cupX + cupW, cupY + cupH / 2, 34, 34, -p.HALF_PI, p.HALF_PI);
 
     // Coffee fill based on timer progress
     let fillProg = (phase === 'work') ? progress : 1; 
@@ -100,11 +104,6 @@ registerSketch('sk4', function (p) {
       fillHeight,
       6
     );
-
-    // Handle on RIGHT side
-    p.strokeWeight(2);
-    p.noFill();
-    p.arc(cupX + cupW, cupY + cupH / 2, 34, 34, -p.HALF_PI, p.HALF_PI);
 
     // Coffee drip animation
 
