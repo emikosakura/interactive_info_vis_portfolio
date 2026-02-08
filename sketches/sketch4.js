@@ -80,30 +80,26 @@ registerSketch('sk4', function (p) {
     // Cup body
     p.rect(cupX, cupY, cupW, cupH, 12);
 
-    // Coffee fill rises during the 25-min work phase
-    let fillProg = 0;
 
-    if (phase === 'work') {
-      fillProg = progress;          // 0 → 1 over WORK_MIN minutes
-    } else {
-      fillProg = 1;                 // stays full during breaks (change to 0 if you want empty)
-    }
+    // Coffee fill based on timer progress
+    let fillProg = (phase === 'work') ? progress : 1; 
+    // ^ stays full during breaks
+    // change 1 → 0 if you want empty cup during breaks
 
-    let innerMargin = 8;
-    let innerH = cupH - innerMargin * 2;
-    let fillH = innerH * fillProg;
+    let margin = 8;
+    let innerHeight = cupH - margin * 2;
+    let fillHeight = innerHeight * fillProg;
 
     p.noStroke();
     p.fill(100, 50, 0);
+
     p.rect(
-      cupX + innerMargin,
-      cupY + cupH - innerMargin - fillH,
-      cupW - innerMargin * 2,
-      fillH,
+      cupX + margin,
+      cupY + cupH - margin - fillHeight,
+      cupW - margin * 2,
+      fillHeight,
       6
     );
-
-
 
     // Handle on RIGHT side
     p.strokeWeight(2);
@@ -141,11 +137,19 @@ registerSketch('sk4', function (p) {
   };
 
   function toggleRun() {
-    running = !running;
-    labelButton('Start', running ? 'Pause' : 'Start');
-    if (running) startMs = p.millis();
-    else elapsedMs = getElapsedMs();
+    if (running) {
+      // Pausing: capture elapsed time BEFORE flipping running off
+      elapsedMs = (p.millis() - startMs) + elapsedMs;
+      running = false;
+      labelButton('Start', 'Start');
+    } else {
+      // Starting/resuming
+      running = true;
+      startMs = p.millis();
+      labelButton('Start', 'Pause');
+    }
   }
+  
   
   function resetPhase() {
     running = false;
