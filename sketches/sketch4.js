@@ -32,7 +32,7 @@ registerSketch('sk4', function (p) {
     const durMs = minutesToMs(currentPhaseMinutes());
     const tMs = p.constrain(getElapsedMs(), 0, durMs);
     const remainMs = p.max(0, durMs - tMs);
-    const progress = p.constrain(tMs / durMs, 0, 1);
+    const progress = (durMs === 0) ? 0 : p.constrain(tMs / durMs, 0, 1);
 
     if (running && remainMs <= 0) onPhaseComplete();
 
@@ -79,6 +79,31 @@ registerSketch('sk4', function (p) {
 
     // Cup body
     p.rect(cupX, cupY, cupW, cupH, 12);
+
+    // Coffee fill rises during the 25-min work phase
+    let fillProg = 0;
+
+    if (phase === 'work') {
+      fillProg = progress;          // 0 → 1 over WORK_MIN minutes
+    } else {
+      fillProg = 1;                 // stays full during breaks (change to 0 if you want empty)
+    }
+
+    let innerMargin = 8;
+    let innerH = cupH - innerMargin * 2;
+    let fillH = innerH * fillProg;
+
+    p.noStroke();
+    p.fill(100, 50, 0);
+    p.rect(
+      cupX + innerMargin,
+      cupY + cupH - innerMargin - fillH,
+      cupW - innerMargin * 2,
+      fillH,
+      6
+    );
+
+
 
     // Handle on RIGHT side
     p.strokeWeight(2);
