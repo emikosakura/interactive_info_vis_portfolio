@@ -50,6 +50,10 @@ registerSketch('sk4', function (p) {
     // Cup body
     p.rect(cupX, cupY, cupW, cupH, 12);
     
+    // Coffee fill inside the cup
+    p.fill(100, 50, 0); // Coffee color
+    p.rect(cupX + 5, cupY + cupH - 40, cupW - 10, 35, 8); // Coffee fill
+
     // Handle on RIGHT side
     p.strokeWeight(2);
     p.noFill();
