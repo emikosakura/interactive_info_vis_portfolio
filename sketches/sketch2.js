@@ -61,28 +61,24 @@ registerSketch('sk2', function (p) {
     }
   
     // cup geometry (matches your lines)
+    let cx = p.width / 2;
     let topY = p.height / 2 + 100;
     let bottomY = p.height / 2 + 250;
-  
+
     // fill level (top -> bottom)
     let fillY = p.lerp(topY, bottomY, t);
-  
-    // left/right walls are slanted: x changes with y
-    // left: from (-60, topY) to (-50, bottomY)
-    // right: from (+60, topY) to (+50, bottomY)
-    let wallT = (fillY - topY) / (bottomY - topY); // 0 at top, 1 at bottom
-    let leftX = p.lerp(p.width / 2 - 60, p.width / 2 - 50, wallT);
-    let rightX = p.lerp(p.width / 2 + 60, p.width / 2 + 50, wallT);
-  
-    // draw coffee shape
+
+    let leftX = cx - 55;
+    let rightX = cx + 55;
+
     p.noStroke();
-    p.fill(110, 72, 40, 220); // coffee brown w/ a little transparency
-  
+    p.fill(110, 72, 40, 220);
+
     p.beginShape();
-    p.vertex(p.width / 2 - 50, bottomY); // bottom-left corner
-    p.vertex(p.width / 2 + 50, bottomY); // bottom-right corner
-    p.vertex(rightX, fillY);             // right at fill height
-    p.vertex(leftX, fillY);              // left at fill height
+    p.vertex(leftX, bottomY);   // bottom-left
+    p.vertex(rightX, bottomY);  // bottom-right
+    p.vertex(rightX, fillY);    // right side up
+    p.vertex(leftX, fillY);     // left side up
     p.endShape(p.CLOSE);
 
     p.stroke(255,120);
