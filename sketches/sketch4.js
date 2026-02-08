@@ -16,6 +16,8 @@ registerSketch('sk4', function (p) {
   let totalWorks = 0;
   const buttons = [];
 
+  let dripY = 0;
+
   p.setup = function () {
     p.createCanvas(800, 800);
 
@@ -88,23 +90,16 @@ registerSketch('sk4', function (p) {
     p.arc(cupX + cupW, cupY + cupH / 2, 34, 34, -p.HALF_PI, p.HALF_PI);
 
     // Coffee drip animation
-    let dripY = 0;
-    let dripOn = true;
 
-    if (dripOn) {
-      // drip starts at bottom of nozzle
+    if (phase === 'work' && running) {
       let dripX1 = centerX - 5;
       let dripX2 = centerX + 5;
-      let dripStartY = centerY + 100; 
-      let dripEndY = cupY + 10; 
+      let dripStartY = centerY + 100;
+      let dripEndY = cupY + 10;
 
-      // move drip downward
       dripY += 6;
-
-      // wrap back to top when it reaches the cup
       if (dripStartY + dripY > dripEndY) dripY = 0;
 
-      // draw droplets
       p.noStroke();
       p.fill(100, 50, 0);
       p.ellipse(dripX1, dripStartY + dripY, 6, 10);
