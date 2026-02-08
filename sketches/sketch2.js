@@ -42,8 +42,8 @@ registerSketch('sk2', function (p) {
     let topY = p.height / 2 + 100;
     let bottomY = p.height / 2 + 250;
   
-    // fill level (bottom -> top)
-    let fillY = p.lerp(bottomY, topY, t);
+    // fill level (top -> bottom)
+    let fillY = p.lerp(topY, bottomY, t);
   
     // left/right walls are slanted: x changes with y
     // left: from (-60, topY) to (-50, bottomY)
@@ -77,9 +77,9 @@ registerSketch('sk2', function (p) {
   
     let labelX = p.width / 2 + 80; // position left of cup
   
-    p.text("End of day", labelX, topY);
+    p.text("12:00 AM", labelX, topY);
     p.text("12:00 PM", labelX, midY);
-    p.text("12:00 AM", labelX, bottomY);
+    p.text("End of day", labelX, bottomY);
   };
 
   p.windowResized = function () { p.resizeCanvas(800, 800); };
