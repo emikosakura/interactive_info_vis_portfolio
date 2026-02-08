@@ -2,7 +2,7 @@
 registerSketch('sk2', function (p) {
 
   p.setup = function () {
-    p.createCanvas(800, 800);
+    p.createCanvas(500, 500);
   };
   p.draw = function () {
     p.background(255);
@@ -17,8 +17,9 @@ registerSketch('sk2', function (p) {
     p.strokeWeight(4);
   
     let cx = p.width / 2;
-    let topY = p.height / 2 + 100;
-    let bottomY = p.height / 2 + 250;
+    let cy = p.height * 0.35; 
+    let topY = cy;
+    let bottomY = cy + 150;
   
     p.line(cx - 55, topY, cx + 55, topY);      // top
     p.line(cx - 55, topY, cx - 55, bottomY);   // left wall (vertical)
@@ -62,8 +63,9 @@ registerSketch('sk2', function (p) {
   
     // cup geometry (matches your lines)
     let cx = p.width / 2;
-    let topY = p.height / 2 + 100;
-    let bottomY = p.height / 2 + 250;
+    let cy = p.height * 0.35; 
+    let topY = cy;
+    let bottomY = cy + 150;
 
     // fill level (top -> bottom)
     let fillY = p.lerp(topY, bottomY, t);
@@ -93,8 +95,9 @@ registerSketch('sk2', function (p) {
     p.textSize(12);
   
     // Must match your cup geometry
-    let topY = p.height / 2 + 100;
-    let bottomY = p.height / 2 + 250;
+    let cy = p.height * 0.35;
+    let topY = cy;
+    let bottomY = cy + 150;
     let midY = (topY + bottomY) / 2;
   
     let labelX = p.width / 2 + 80; 
@@ -105,5 +108,5 @@ registerSketch('sk2', function (p) {
 
   };
 
-  p.windowResized = function () { p.resizeCanvas(800, 800); };
+  p.windowResized = function () { p.resizeCanvas(500, 500); };
 });
