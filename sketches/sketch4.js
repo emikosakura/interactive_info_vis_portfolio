@@ -37,6 +37,23 @@ registerSketch('sk4', function (p) {
     p.fill(255, 255, 0);
     p.ellipse(centerX + 50, centerY - 100, 20, 20); // Button 3 (Yellow)
     
+    /// Draw the coffee cup under the spout
+    let cupW = 90;
+    let cupH = 70;
+    let cupX = centerX - cupW / 2;
+    let cupY = centerY + 130;
+
+    p.fill(255);
+    p.stroke(0);
+    p.strokeWeight(2);
+
+    // Cup body
+    p.rect(cupX, cupY, cupW, cupH, 12);
+    
+    // Handle on RIGHT side
+    p.strokeWeight(2);
+    p.noFill();
+    p.arc(cupX + cupW, cupY + cupH / 2, 34, 34, -p.HALF_PI, p.HALF_PI);
   };
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
