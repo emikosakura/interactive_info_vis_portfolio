@@ -15,20 +15,25 @@ registerSketch('sk2', function (p) {
     p.noFill();
     p.stroke(0);
     p.strokeWeight(4);
-
-    // Draw the cup body (trapezoid shape for a tapered look)
-    // Cup outline as 3 lines (no flat bottom)
-    p.line(p.width / 2 - 60, p.height / 2 + 100, p.width / 2 + 60, p.height / 2 + 100); // top
-    p.line(p.width / 2 - 60, p.height / 2 + 100, p.width / 2 - 50, p.height / 2 + 250); // left side
-    p.line(p.width / 2 + 60, p.height / 2 + 100, p.width / 2 + 50, p.height / 2 + 250); // right side
-
-    // Draw the cup handle (semi-oval shape)
-    p.noFill();
-    p.arc(p.width / 2 - 60, p.height / 2 + 175, 80, 100, p.HALF_PI, p.PI + p.HALF_PI);
-
-    // Draw the cup base (ellipse for a rounded bottom)
-    p.ellipse(p.width / 2, p.height / 2 + 248, 100, 20);
-
+  
+    let cx = p.width / 2;
+    let topY = p.height / 2 + 100;
+    let bottomY = p.height / 2 + 250;
+  
+    p.line(cx - 55, topY, cx + 55, topY);      // top
+    p.line(cx - 55, topY, cx - 55, bottomY);   // left wall (vertical)
+    p.line(cx + 55, topY, cx + 55, bottomY);   // right wall (vertical)
+  
+    p.ellipse(cx, bottomY, 110, 22);
+  
+    p.arc(
+      cx - 55,
+      (topY + bottomY) / 2,
+      70,
+      110,
+      p.HALF_PI,
+      p.PI + p.HALF_PI
+    );
   }
 
   p.drawCoffeeFill = function () {
@@ -79,6 +84,10 @@ registerSketch('sk2', function (p) {
     p.vertex(rightX, fillY);             // right at fill height
     p.vertex(leftX, fillY);              // left at fill height
     p.endShape(p.CLOSE);
+
+    p.stroke(255,120);
+    p.line(leftX+3, fillY+2, rightX-3, fillY+2);
+
   };
   
   p.drawCupLabels = function () {
