@@ -105,6 +105,131 @@ registerSketch('sk4', function (p) {
       p.ellipse(dripX1, dripStartY + dripY, 6, 10);
       p.ellipse(dripX2, dripStartY + (dripY + 18) % 140, 6, 10);
     }
+
+    // same structure as example 8
+    layoutButtons(centerX, centerY + 260);
+    drawButtons();
+
+    // Hint
+    p.fill(130, 100, 140);
+    p.noStroke();
+    p.textSize(11);
+    p.textAlign(p.CENTER, p.TOP);
+    p.text('Space: Start/Pause   •   R: Reset   •   N: Skip', centerX, p.height - 26);
+
   };
+
+  function toggleRun() {
+    running = !running;
+    labelButton('Start', running ? 'Pause' : 'Start');
+    if (running) startMs = p.millis();
+    else elapsedMs = getElapsedMs();
+  }
+  
+  function resetPhase() {
+    running = false;
+    labelButton('Start', 'Start');
+    startMs = p.millis();
+    elapsedMs = 0;
+  }
+  
+  function skipPhase() {
+    running = false;
+    labelButton('Start', 'Start');
+    onPhaseComplete(true);
+  }
+  
+  function onPhaseComplete(skipped = false) {
+    if (phase === 'work' && !skipped) {
+      completedWorks++;
+      totalWorks++;
+    }
+  
+    if (phase === 'work') {
+      if (completedWorks > 0 && completedWorks % LONG_EVERY === 0) phase = 'long';
+      else phase = 'short';
+    } else phase = 'work';
+  
+    elapsedMs = 0;
+    startMs = p.millis();
+    running = true;
+    labelButton('Start', 'Pause');
+  }
+  
+  function currentPhaseMinutes() {
+    if (phase === 'work') return WORK_MIN;
+    if (phase === 'short') return SHORT_MIN;
+    return LONG_MIN;
+  }
+  
+  function getElapsedMs() {
+    return running ? (p.millis() - startMs) + elapsedMs : elapsedMs;
+  }
+  
+  function minutesToMs(mins) {
+    return mins * 60 * 1000;
+  }
+  
+  function msToMMSS(ms) {
+    const total = p.max(0, p.round(ms / 1000));
+    const m = p.floor(total / 60);
+    const s = total % 60;
+    return { mm: p.nf(m, 2), ss: p.nf(s, 2) };
+  }
+  
+  function makeBtn(label, x, y, onClick) {
+    return { label, x, y, w: 90, h: 34, onClick, hover: false };
+  }
+  
+  function labelButton(oldText, newText) {
+    const b = buttons.find(btn => btn.label === oldText || (oldText === 'Start' && (btn.label === 'Start' || btn.label === 'Pause')));
+    if (b) b.label = newText;
+  }
+  
+  function layoutButtons(cx, baselineY) {
+    const gap = 12;
+    const totalW = buttons.length * 90 + (buttons.length - 1) * gap;
+    let x = cx - totalW / 2;
+    for (let b of buttons) {
+      b.x = x;
+      b.y = baselineY;
+      x += 90 + gap;
+    }
+  }
+  
+  function drawButtons() {
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(14);
+    for (let b of buttons) {
+      b.hover = p.mouseX >= b.x && p.mouseX <= b.x + b.w &&
+                p.mouseY >= b.y && p.mouseY <= b.y + b.h;
+  
+      p.stroke(255, 150);
+      p.strokeWeight(1);
+      p.fill(b.hover ? '#f6d7eb' : '#f9e6f0');
+      p.rect(b.x, b.y, b.w, b.h, 20);
+  
+      p.fill(120, 90, 120);
+      p.noStroke();
+      p.text(b.label, b.x + b.w / 2, b.y + b.h / 2);
+    }
+  }
+
+  p.mousePressed = function () {
+    for (let b of buttons) {
+      if (p.mouseX >= b.x && p.mouseX <= b.x + b.w &&
+          p.mouseY >= b.y && p.mouseY <= b.y + b.h) {
+        b.onClick();
+        return;
+      }
+    }
+  };
+  
+  p.keyPressed = function () {
+    if (p.key === ' ') toggleRun();
+    if (p.key === 'r' || p.key === 'R') resetPhase();
+    if (p.key === 'n' || p.key === 'N') skipPhase();
+  };
+  
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
