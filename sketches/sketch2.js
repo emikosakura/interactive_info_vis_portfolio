@@ -36,7 +36,24 @@ registerSketch('sk2', function (p) {
     let hr = p.hour();
     let mn = p.minute();
     let sc = p.second();
-    let t = (hr * 3600 + mn * 60 + sc) / (24 * 3600); // 0 at midnight, 1 at end of day
+
+    // seconds since midnight
+    let nowSec = hr * 3600 + mn * 60 + sc;
+
+    // Workday boundaries
+    let startSec = 9 * 3600;   // 9:00 AM
+    let endSec   = 17 * 3600;  // 5:00 PM
+
+    // Map time → progress
+    let t;
+
+    if (nowSec <= startSec) {
+      t = 0;              // before work → full cup
+    } else if (nowSec >= endSec) {
+      t = 1;              // after work → empty cup
+    } else {
+      t = (nowSec - startSec) / (endSec - startSec);
+    }
   
     // cup geometry (matches your lines)
     let topY = p.height / 2 + 100;
@@ -75,11 +92,12 @@ registerSketch('sk2', function (p) {
     let bottomY = p.height / 2 + 250;
     let midY = (topY + bottomY) / 2;
   
-    let labelX = p.width / 2 + 80; // position left of cup
+    let labelX = p.width / 2 + 80; 
   
-    p.text("12:00 AM", labelX, topY);
-    p.text("12:00 PM", labelX, midY);
-    p.text("End of day", labelX, bottomY);
+    p.text("9:00 AM", labelX, topY);
+    p.text("1:00 PM", labelX, midY);
+    p.text("5:00 PM", labelX, bottomY);
+
   };
 
   p.windowResized = function () { p.resizeCanvas(800, 800); };
