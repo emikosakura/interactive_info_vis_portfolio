@@ -58,6 +58,30 @@ registerSketch('sk4', function (p) {
     p.strokeWeight(2);
     p.noFill();
     p.arc(cupX + cupW, cupY + cupH / 2, 34, 34, -p.HALF_PI, p.HALF_PI);
+
+    // Coffee drip animation
+    let dripY = 0;
+    let dripOn = true;
+
+    if (dripOn) {
+      // drip starts at bottom of nozzle
+      let dripX1 = centerX - 5;
+      let dripX2 = centerX + 5;
+      let dripStartY = centerY + 100; 
+      let dripEndY = cupY + 10; 
+
+      // move drip downward
+      dripY += 6;
+
+      // wrap back to top when it reaches the cup
+      if (dripStartY + dripY > dripEndY) dripY = 0;
+
+      // draw droplets
+      p.noStroke();
+      p.fill(100, 50, 0);
+      p.ellipse(dripX1, dripStartY + dripY, 6, 10);
+      p.ellipse(dripX2, dripStartY + (dripY + 18) % 140, 6, 10);
+    }
   };
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
