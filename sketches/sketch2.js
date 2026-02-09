@@ -47,6 +47,13 @@ registerSketch('sk2', function (p) {
       p.textAlign(p.LEFT, p.CENTER);
       p.text(timeStr, tx + pad, ty + h/2);
     }
+
+    p.fill(120);
+    p.noStroke();
+    p.textAlign(p.CENTER, p.TOP);
+    p.textSize(12);
+    p.text("Hover over cup to see current time", p.width/2, p.height - 70);
+
   }
 
   p.drawCoffeeCup = function() {
