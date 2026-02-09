@@ -127,11 +127,11 @@ registerSketch('sk4', function (p) {
     drawButtons();
 
     // Hint
-    p.fill(130, 100, 140);
+    p.fill('#3E2723');
     p.noStroke();
     p.textSize(11);
     p.textAlign(p.CENTER, p.TOP);
-    p.text('Space: Start/Pause   •   R: Reset   •   N: Skip', centerX, p.height - 26);
+    p.text('Space: Start/Pause   •   R: Reset   •   N: Skip', centerX, p.height - 50);
 
   };
 
@@ -228,14 +228,17 @@ registerSketch('sk4', function (p) {
       b.hover = p.mouseX >= b.x && p.mouseX <= b.x + b.w &&
                 p.mouseY >= b.y && p.mouseY <= b.y + b.h;
   
-      p.stroke(255, 150);
-      p.strokeWeight(1);
-      p.fill(b.hover ? '#f6d7eb' : '#f9e6f0');
-      p.rect(b.x, b.y, b.w, b.h, 20);
-  
-      p.fill(120, 90, 120);
-      p.noStroke();
-      p.text(b.label, b.x + b.w / 2, b.y + b.h / 2);
+    p.stroke('#8B6B4A'); // warm brown outline
+    p.strokeWeight(1);
+
+    // button fill
+    p.fill(b.hover ? '#D7B899' : '#E8D3BD'); 
+    p.rect(b.x, b.y, b.w, b.h, 20);
+
+    // text color
+    p.noStroke();
+    p.fill('#3E2723'); // espresso dark
+    p.text(b.label, b.x + b.w / 2, b.y + b.h / 2);
     }
   }
 
