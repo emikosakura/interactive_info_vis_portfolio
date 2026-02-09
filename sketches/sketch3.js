@@ -89,19 +89,19 @@ registerSketch('sk3', function (p) {
     p.fill(0);
     p.textAlign(p.LEFT, p.CENTER);
     p.textSize(12);
-    p.text("Morning (cool)", legendX + spacing, legendY);
+    p.text("Morning", legendX + spacing, legendY);
 
     // Midday (neutral)
     p.fill(255, 255, 224); // Light yellow
     p.ellipse(legendX, legendY + spacing, swatchSize, swatchSize);
     p.fill(0);
-    p.text("Midday (neutral)", legendX + spacing, legendY + spacing);
+    p.text("Afternoon", legendX + spacing, legendY + spacing);
 
     // Evening (warm)
     p.fill(255, 165, 0); // Orange
     p.ellipse(legendX, legendY + 2 * spacing, swatchSize, swatchSize);
     p.fill(0);
-    p.text("Evening (warm)", legendX + spacing, legendY + 2 * spacing);
+    p.text("Evening", legendX + spacing, legendY + 2 * spacing);
   };
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
