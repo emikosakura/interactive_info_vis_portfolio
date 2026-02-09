@@ -32,6 +32,8 @@ registerSketch('sk4', function (p) {
     const durMs = minutesToMs(currentPhaseMinutes());
     const tMs = p.constrain(getElapsedMs(), 0, durMs);
     const remainMs = p.max(0, durMs - tMs);
+    const { mm, ss } = msToMMSS(remainMs);
+    const timeStr = `${mm}:${ss}`;  
     const progress = (durMs === 0) ? 0 : p.constrain(tMs / durMs, 0, 1);
 
     if (running && remainMs <= 0) onPhaseComplete();
@@ -40,31 +42,49 @@ registerSketch('sk4', function (p) {
     let centerX = p.width / 2;
     let centerY = p.height / 2;
 
+    // Timer display above the machine
+    p.noStroke();
+    p.fill('#3E2723');           // espresso text color
+    p.textAlign(p.CENTER, p.CENTER);
+
+    // Phase label (smaller)
+    p.textSize(18);
+    p.text(phaseTitle(), centerX, centerY - 250);
+
+    // Remaining time (bigger)
+    p.textSize(44);
+    p.text(timeStr, centerX, centerY - 215);
+
+    // Optional tiny status line
+    p.textSize(12);
+    p.fill('#6D4C41');           // softer brown
+    p.text(running ? 'Running' : 'Paused', centerX, centerY - 158);
+
     // Draw the main body of the espresso machine
-    p.fill(100);
+    p.fill(190);
     p.stroke(0);
     p.strokeWeight(2);
     p.rect(centerX - 100, centerY - 150, 200, 300, 10); // Main body
 
     // Draw the top section
-    p.fill(80);
+    p.fill(170);
     p.rect(centerX - 120, centerY - 180, 240, 30, 10); // Top section
 
     // Draw the coffee spout
-    p.fill(60);
+    p.fill(150);
     p.rect(centerX - 20, centerY + 50, 40, 20, 5); // Spout base
     p.rect(centerX - 10, centerY + 70, 20, 30, 5); // Spout nozzle
 
     // Draw the control panel
-    p.fill(120);
+    p.fill(205);
     p.rect(centerX - 80, centerY - 130, 160, 60, 5); // Panel background
 
     // Draw buttons on the control panel
-    p.fill(255, 0, 0);
+    p.fill('#F4A7A7');
     p.ellipse(centerX - 50, centerY - 100, 20, 20); // Button 1 (Red)
-    p.fill(0, 255, 0);
+    p.fill('#B8E0C1');
     p.ellipse(centerX, centerY - 100, 20, 20); // Button 2 (Green)
-    p.fill(255, 255, 0);
+    p.fill('#F6E6A8');
     p.ellipse(centerX + 50, centerY - 100, 20, 20); // Button 3 (Yellow)
     
     /// Draw the coffee cup under the spout
@@ -184,6 +204,12 @@ registerSketch('sk4', function (p) {
     if (phase === 'work') return WORK_MIN;
     if (phase === 'short') return SHORT_MIN;
     return LONG_MIN;
+  }
+
+  function phaseTitle() {
+    if (phase === 'work') return 'Focus ☕';
+    if (phase === 'short') return 'Short Break 🌿';
+    return 'Long Break 🎧';
   }
   
   function getElapsedMs() {
