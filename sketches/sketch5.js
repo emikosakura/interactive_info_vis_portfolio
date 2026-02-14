@@ -82,6 +82,10 @@ registerSketch('sk5', function (p) {
     drawSeasonBands(innerR, outerRMax);
     drawRadialRings(innerR, outerRMax, maxMonthTotal);
 
+    drawLegend();
+
+    // helper methods below
+
     function drawSeasonBands(innerR, outerRMax) {
       const startAngle = -p.HALF_PI;
       const step = p.TWO_PI / 12;
@@ -133,10 +137,33 @@ registerSketch('sk5', function (p) {
       }
       p.pop();
     }
-    
+
+    function drawLegend() {
+      p.push();
+      p.resetMatrix();
+  
+      const x = 16, y = p.height - 78;
+  
+      p.noStroke();
+      p.fill(20);
+      p.textSize(12);
+      p.textAlign(p.LEFT, p.TOP);
+      p.text("Legend", x, y);
+  
+      p.fill(140, 110, 80);
+      p.rect(x, y + 22, 14, 14, 3);
+      p.fill(20);
+      p.text("Milk", x + 20, y + 22);
+  
+      p.fill(230, 160, 170);
+      p.rect(x, y + 42, 14, 14, 3);
+      p.fill(20);
+      p.text("Fruit", x + 20, y + 42);
+  
+      p.pop();
+    }
 
   }
-
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
 
