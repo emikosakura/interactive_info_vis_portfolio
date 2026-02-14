@@ -84,11 +84,44 @@ registerSketch('sk5', function (p) {
 
     // hover detection
     hoveredMonth = null;
+    const mx = p.mouseX - p.width / 2;
+    const my = p.mouseY - p.height / 2;
+    const rMouse = p.sqrt(mx * mx + my * my);
+
+    let angMouse = p.atan2(my, mx);
+    if (angMouse < 0) angMouse += p.TWO_PI;
+
+    let rel = angMouse - startAngle;
+    while (rel < 0) rel += p.TWO_PI;
+    while (rel >= p.TWO_PI) rel -= p.TWO_PI;
+
+    const idx = p.constrain(p.floor(rel / monthStep), 0, 11);
+    const candidate = months[idx];
+
+    const a0c = startAngle + idx * monthStep;
+    const a1c = a0c + monthStep * gapFrac;
+
+    const totalC = monthCounts[candidate];
+    const outerRC = p.map(totalC, 0, maxMonthTotal || 1, outerRMin, outerRMax);
+
+    const inAngle = isAngleBetween(angMouse, a0c, a1c);
+    const inRadius = (rMouse >= innerR && rMouse <= outerRC);
+
+    if (inAngle && inRadius && totalC > 0) hoveredMonth = candidate;
+
 
     drawLegend();
     drawAnnotation();
 
     // helper methods below
+
+    function isAngleBetween(a, a0, a1) {
+      a = (a + p.TWO_PI) % p.TWO_PI;
+      a0 = (a0 + p.TWO_PI) % p.TWO_PI;
+      a1 = (a1 + p.TWO_PI) % p.TWO_PI;
+      if (a0 <= a1) return a >= a0 && a <= a1;
+      return a >= a0 || a <= a1;
+    }
   
     function drawRingSegment(rInner, rOuter, a0, a1, c) {
       p.noStroke();
