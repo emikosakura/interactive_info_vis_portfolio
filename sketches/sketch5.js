@@ -109,6 +109,79 @@ registerSketch('sk5', function (p) {
 
     if (inAngle && inRadius && totalC > 0) hoveredMonth = candidate;
 
+    // draw wedges
+    for (let i = 0; i < 12; i++) {
+      const m = months[i];
+      const total = monthCounts[m];
+
+      const a0 = startAngle + i * monthStep;
+      const a1 = a0 + monthStep * gapFrac;
+
+      const outerR = p.map(total, 0, maxMonthTotal || 1, outerRMin, outerRMax);
+
+      const milk = monthTypeCounts[m].Milk;
+      const fruit = monthTypeCounts[m].Fruit;
+
+      const milkFrac = total > 0 ? milk / total : 0;
+      const fruitFrac = total > 0 ? fruit / total : 0;
+
+      let running = a0;
+
+      // Milk segment
+      if (milk > 0) {
+        const seg = (a1 - a0) * milkFrac;
+        drawRingSegment(innerR, outerR, running, running + seg, p.color(140, 110, 80));
+        running += seg;
+      }
+
+      // Fruit segment
+      if (fruit > 0) {
+        const seg = (a1 - a0) * fruitFrac;
+        drawRingSegment(innerR, outerR, running, running + seg, p.color(230, 160, 170));
+        running += seg;
+      }
+
+      // Divider between milk and fruit
+      if (milk > 0 && fruit > 0 && total > 0) {
+        const boundaryA = a0 + (a1 - a0) * (milk / total);
+        p.stroke(255);
+        p.strokeWeight(3);
+        p.line(
+          p.cos(boundaryA) * innerR, p.sin(boundaryA) * innerR,
+          p.cos(boundaryA) * outerR, p.sin(boundaryA) * outerR
+        );
+      }
+
+      // Outer edge
+      p.noFill();
+      p.stroke(255);
+      p.strokeWeight(2);
+      p.arc(0, 0, outerR * 2, outerR * 2, a0, a1);
+
+      // Month label around circle
+      const mid = (a0 + a1) / 2;
+      const labelR = outerRMax + 26;
+
+      p.push();
+      p.rotate(mid);
+      p.translate(labelR, 0);
+      p.rotate(p.HALF_PI);
+      p.noStroke();
+      p.fill(40);
+      p.textSize(11);
+      p.textAlign(p.CENTER, p.CENTER);
+      p.text(m.slice(0, 3) + ": " + total, 0, 0);
+      p.pop();
+
+      // Hover highlight
+      if (hoveredMonth === m) {
+        p.noFill();
+        p.stroke(0, 70);
+        p.strokeWeight(2);
+        p.arc(0, 0, (outerR + 3) * 2, (outerR + 3) * 2, a0, a1);
+      }
+    }
+
 
     drawLegend();
     drawAnnotation();
