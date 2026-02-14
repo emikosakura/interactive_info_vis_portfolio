@@ -62,6 +62,13 @@ registerSketch('sk5', function (p) {
     p.background(255);
     p.translate(p.width/2, p.height/2);
 
+    const innerR = 90;
+    const outerRMin = innerR + 20;
+    const outerRMax = 230;
+    const monthStep = p.TWO_PI / 12;
+    const startAngle = -p.HALF_PI;
+    const gapFrac = 0.92;
+
     // chart title
     p.push();
     p.resetMatrix();
