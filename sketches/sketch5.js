@@ -184,6 +184,20 @@ registerSketch('sk5', function (p) {
 
     drawRadialLabels(innerR, outerRMax, maxMonthTotal);
 
+    // Center hole
+    p.noStroke();
+    p.fill(245);
+    p.circle(0, 0, innerR * 2);
+
+    // Center text
+    p.fill(30);
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(12);
+    p.text("Monthly Distribution", 0, 0);
+
+    // Tooltip
+    if (hoveredMonth) drawTooltip(hoveredMonth);
+
     drawLegend();
     drawAnnotation();
 
@@ -209,7 +223,7 @@ registerSketch('sk5', function (p) {
       }
       p.endShape(p.CLOSE);
     }
-
+  
     function drawRadialRings(innerR, outerRMax, maxValue) {
       p.push();
       const outerRMin = innerR + 20;
@@ -253,7 +267,77 @@ registerSketch('sk5', function (p) {
       }
       p.pop();
     }
-
+  
+    function drawTooltip(monthName) {
+      const total = monthCounts[monthName];
+      const milk = monthTypeCounts[monthName].Milk;
+      const fruit = monthTypeCounts[monthName].Fruit;
+  
+      const pctTotal = totalAllDrinks > 0 ? (total / totalAllDrinks) * 100 : 0;
+      const pctMilk = total > 0 ? (milk / total) * 100 : 0;
+      const pctFruit = total > 0 ? (fruit / total) * 100 : 0;
+  
+      const lines = [
+        `${monthName}`,
+        `${p.nf(pctTotal, 0, 1)}% of total drinks (${total})`,
+        `Milk: ${p.nf(pctMilk, 0, 1)}% • Fruit: ${p.nf(pctFruit, 0, 1)}%`
+      ];
+  
+      p.push();
+      p.resetMatrix();
+  
+      p.textFont("monospace");
+      p.textSize(12);
+  
+      let x = p.mouseX + 12;
+      let y = p.mouseY + 12;
+  
+      let w = 0;
+      for (let s of lines) w = p.max(w, p.textWidth(s));
+      const padding = 10;
+      const h = lines.length * 16 + padding;
+  
+      if (x + w + padding * 2 > p.width) x = p.mouseX - (w + padding * 2) - 12;
+      if (y + h > p.height) y = p.mouseY - h - 12;
+  
+      p.noStroke();
+      p.fill(255, 245);
+      p.rect(x, y, w + padding * 2, h, 10);
+  
+      p.fill(30);
+      p.textAlign(p.LEFT, p.TOP);
+      for (let i = 0; i < lines.length; i++) {
+        p.text(lines[i], x + padding, y + 6 + i * 16);
+      }
+  
+      p.pop();
+    }
+  
+    function drawLegend() {
+      p.push();
+      p.resetMatrix();
+  
+      const x = 16, y = p.height - 78;
+  
+      p.noStroke();
+      p.fill(20);
+      p.textSize(12);
+      p.textAlign(p.LEFT, p.TOP);
+      p.text("Legend", x, y);
+  
+      p.fill(140, 110, 80);
+      p.rect(x, y + 22, 14, 14, 3);
+      p.fill(20);
+      p.text("Milk", x + 20, y + 22);
+  
+      p.fill(230, 160, 170);
+      p.rect(x, y + 42, 14, 14, 3);
+      p.fill(20);
+      p.text("Fruit", x + 20, y + 42);
+  
+      p.pop();
+    }
+  
     function drawSeasonBands(innerR, outerRMax) {
       const startAngle = -p.HALF_PI;
       const step = p.TWO_PI / 12;
@@ -289,14 +373,14 @@ registerSketch('sk5', function (p) {
   
       for (const s of seasons) drawRange(s.start, s.end, s.col);
     }
-
+  
     function drawAnnotation() {
       p.push();
       p.resetMatrix();
   
       p.fill(70);
       p.textAlign(p.CENTER);
-      p.textSize(10);
+      p.textSize(12);
       p.text(
         "Radius encodes total drinks per month • Color shows Milk vs Fruit • Hover for details",
         p.width / 2,
