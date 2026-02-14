@@ -1,4 +1,10 @@
 registerSketch('sk5', function (p) {
+  let table;
+  
+  p.preload = function() {
+    table = p.loadTable('boba-tracker.csv', 'csv', 'header');
+  }
+
   p.setup = function () {
     p.createCanvas(800, 800);
   };
