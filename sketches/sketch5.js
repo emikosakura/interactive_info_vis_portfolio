@@ -82,6 +82,9 @@ registerSketch('sk5', function (p) {
     drawSeasonBands(innerR, outerRMax);
     drawRadialRings(innerR, outerRMax, maxMonthTotal);
 
+    // hover detection
+    hoveredMonth = null;
+
     drawLegend();
     drawAnnotation();
 
