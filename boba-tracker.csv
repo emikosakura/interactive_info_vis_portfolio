@@ -1,0 +1,470 @@
+Date,Month,Day of Week,Place,Drink,Topping,Type 
+1/8/2021,January,Friday,Cafe Lattea,Black Milk Tea,Boba,Milk
+1/9/2021,January,Saturday,Teaspoon,Passion Fruit Sunrise,Boba,Fruit
+1/23/2021,January,Saturday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk 
+1/28/2021,January,Thursday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+2/3/2021,February,Wednesday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+2/7/2021,February,Sunday,Mr. Sun,Black Tea Lemonade ,Strawberry Boba,Fruit
+2/14/2021,February,Sunday,Mr. Sun,Mango Green Tea,Peach Boba,Fruit
+2/19/2021,February,Friday,Gong Cha,Boba Milk Tea,Boba,Milk
+2/26/2021,February,Friday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+3/5/2021,March,Friday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+3/10/2021,March,Wednesday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+3/15/2021,March,Monday,Gong Cha,Boba Milk Tea,Boba,Milk
+3/16/2021,March,Tuesday,Yifang,Boba Milk Tea,Boba,Milk
+3/26/2021,March,Friday,Tastea,Bootea Shaker,Boba,Fruit
+4/2/2021,April,Friday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+4/10/2021,April,Saturday,Mr. Sun,Mango Green Tea,None,Fruit
+4/14/2021,April,Wednesday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+4/20/2021,April,Tuesday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+4/23/2021,April,Friday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+4/25/2021,April,Sunday,Tpumps,"Passion Fruit, Mango, Peach Black Tea",Boba,Fruit
+5/2/2021,May,Sunday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+5/5/2021,May,Wednesday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+5/9/2021,May,Sunday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+5/14/2021,May,Friday,Tan Cha,Brown Sugar Boba Milk Tea,Boba,Milk
+5/17/2021,May,Monday,Gong Cha,Boba Milk Tea,Boba,Milk
+5/21/2021,May,Friday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+5/22/2021,May,Saturday,Cafe Lattea,Earl Grey Milk Tea,None,Milk
+5/28/2021,May,Friday,Mr. Sun,Mango Green Tea,None,Fruit
+5/29/2021,May,Saturday,Tea Top,Earl Grey Milk Tea,"Boba, Jelly",Milk
+5/30/2021,May,Sunday,Tpumps,"Passion Fruit, Mango, Peach Black Tea",Boba,Fruit
+6/1/2021,June,Tuesday,Tan Cha,Super Fruit Tea,Boba,Fruit
+6/3/2021,June,Thursday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+6/4/2021,June,Friday,Cafe Lattea,Black Milk Tea,Boba,Milk
+6/5/2021,June,Saturday,Teaspoon,House Milk Tea,Boba,Milk
+6/8/2021,June,Tuesday,Tea Era,Black Milk Tea,Boba,Milk
+6/17/2021,June,Thursday,Share Tea,Honey Milk Tea,Boba,Milk
+6/20/2021,June,Sunday,T4,Earl Grey Milk Tea,Boba,Milk
+6/25/2021,June,Friday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+6/27/2021,June,Sunday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+6/30/2021,June,Wednesday,Boba Guys,Strawberry Matcha Latte,Boba,Fruit
+7/2/2021,July,Friday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+7/3/2021,July,Saturday,Gong Cha,Boba Milk Tea,Boba,Milk
+7/6/2021,July,Tuesday,Mr. Sun,Black Tea Lemonade ,Strawberry Boba,Fruit
+7/8/2021,July,Thursday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+7/13/2021,July,Tuesday,Tpumps,"Passion Fruit, Mango, Peach Black Tea",Boba,Fruit
+7/18/2021,July,Sunday,Tpumps,"Passion Fruit, Mango, Peach Black Milk Tea",Boba,Milk
+7/20/2021,July,Tuesday,Boba Bar,Mango Green Tea,Boba,Fruit
+7/22/2021,July,Thursday,Tastea,Classic Milk Tea,Boba,Milk
+7/28/2021,July,Wednesday,Tan Cha,Strawberry Green Tea,Boba,Fruit
+7/31/2021,July,Saturday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+8/3/2021,August,Tuesday,Junbi,Strawberry Matcha Latte,Boba,Milk
+8/5/2021,August,Thursday,Omomo,Grapefruit Green Tea,Boba,Fruit
+8/13/2021,August,Friday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+8/15/2021,August,Sunday,Happy Lemon,Grapefruit Green Tea,Boba,Fruit
+8/20/2021,August,Friday,Mr. Sun,Black Tea Lemonade ,Strawberry Boba,Fruit
+8/25/2021,August,Wednesday,Cafe Lattea,Black Milk Tea,Boba,Milk
+8/27/2021,August,Friday,Gong Cha,QQ Passion Fruit Green Tea,"Boba, Jelly",Fruit
+8/27/2021,August,Friday,Gong Cha,Boba Milk Tea,Boba,Milk
+9/3/2021,September,Friday,Milk Tea Lab,Mango Milk Tea,Boba,Milk
+9/10/2021,September,Friday,Mr. Sun,Mango Green Tea,None,Fruit
+9/16/2021,September,Thursday,Yifang,Boba Milk Tea,Boba,Milk
+9/20/2021,September,Monday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+9/25/2021,September,Saturday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+10/1/2021,October,Friday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+10/2/2021,October,Saturday,Tea Era,Mango Green Tea,Boba,Fruit
+10/8/2021,October,Friday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+10/9/2021,October,Saturday,Bober,Brown Sugar Boba Milk Tea,Boba,Milk
+10/10/2021,October,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+10/16/2021,October,Saturday,Teaspoon,House Milk Tea,Boba,Milk
+10/22/2021,October,Friday,Happy Lemon,Lemon Yakult,Boba,Fruit
+10/29/2021,October,Friday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/3/2021,November,Wednesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/10/2021,November,Wednesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/11/2021,November,Thursday,Teaspoon,Lychee on Lychee,"Boba, Jelly",Fruit
+11/12/2021,November,Friday,TP Tea,Boba Milk Tea,Boba,Milk
+11/16/2021,November,Tuesday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+11/20/2021,November,Saturday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/23/2021,November,Tuesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/24/2021,November,Wednesday,Tea Top,Earl Grey Milk Tea,"Boba, Jelly",Milk
+12/4/2021,December,Saturday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+12/8/2021,December,Wednesday,Teaspoon,Liquid Gold,Boba,Milk
+12/10/2021,December,Friday,TP Tea,Boba Milk Tea,Boba,Milk
+12/12/2021,December,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+12/16/2021,December,Thursday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+12/18/2021,December,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+12/22/2021,December,Wednesday,Happy Lemon,Lemon Yakult,Boba,Fruit
+12/27/2021,December,Monday,Tpumps,"Passion Fruit, Mango, Peach Black Milk Tea",Boba,Milk
+12/29/2021,December,Wednesday,TP Tea,Boba Milk Tea,Boba,Milk
+12/31/2021,December,Friday,Teaspoon ,House Milk Tea,Boba,Milk
+1/7/2022,January,Friday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+1/16/2022,January,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+1/17/2022,January,Monday,Lilikoi Boba,POG Aloha,Boba,Fruit
+1/22/2022,January,Saturday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+1/28/2022,January,Friday,TP Tea,Strawberry Matcha Latte,Boba,Milk
+2/6/2022,February,Sunday,Meet Fresh,Boba Milk Tea,Boba,Milk
+2/11/2022,February,Friday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+2/12/2022,February,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+2/20/2022,February,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+2/22/2022,February,Tuesday,TP Tea,Passion Fruit Green Tea,Boba,Fruit
+2/26/2022,February,Saturday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+3/3/2022,March,Thursday,TP Tea,Boba Milk Tea,Boba,Milk
+3/7/2022,March,Monday,Tpumps,"Passion Fruit, Mango, Peach Black Tea",Boba,Fruit
+3/11/2022,March,Friday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+3/14/2022,March,Monday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+3/15/2022,March,Tuesday,Mr. Sun,Passion Fruit Green Tea,Boba,Fruit
+3/16/2022,March,Wednesday,Teaspoon,House Milk Tea,Boba,Milk
+3/18/2022,March,Friday,Tiger Tea and Juice,Grapefruit Green Tea,None,Fruit
+3/25/2022,March,Friday,TP Tea,Boba Milk Tea,Boba,Milk
+3/27/2022,March,Sunday,Aloha Fresh,POG Tea,Jelly,Fruit
+4/3/2022,April,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+4/7/2022,April,Thursday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+4/9/2022,April,Saturday,Mr. Sun,Mango Green Tea,None,Fruit
+4/16/2022,April,Saturday,Teaspoon,Guava Sunset,Boba,Fruit
+4/17/2022,April,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+4/21/2022,April,Thursday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+4/23/2022,April,Saturday,On It Coffee,Passion Fruit Black Tea,Mango Boba,Fruit
+4/24/2022,April,Sunday,Mr. Sun,Mango Green Tea,Strawberry Boba,Fruit
+4/30/2022,April,Saturday,Ding Tea,Signature Milk Tea,Boba,Milk
+5/1/2022,May,Sunday,Amai,Milky Way Matcha,Boba,Milk
+5/4/2022,May,Wednesday,Mr. Sun,Strawberry Boba Milk Tea,Strawberry Boba,Milk
+5/7/2022,May,Saturday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+5/8/2022,May,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+5/14/2022,May,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+5/15/2022,May,Sunday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+5/22/2022,May,Sunday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+5/27/2022,May,Friday,Mr. Sun,Strawberry Milk Tea,Strawberry Boba,Milk
+5/28/2022,May,Saturday,Mr. Sun,Brown Sugar Boba Milk Tea,Boba,Milk
+6/2/2022,June,Thursday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+6/4/2022,June,Saturday,Teaspoon,House Milk Tea,Boba,Milk
+6/6/2022,June,Monday,TP Tea,Boba Milk Tea,Boba,Milk
+6/10/2022,June,Friday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+6/16/2022,June,Thursday,Tea Era,Earl Grey Milk Tea,Boba,Milk
+6/18/2022,June,Saturday,Tan Cha,Strawberry Green Tea,Boba,Fruit
+6/21/2022,June,Tuesday,Happy Lemon,Grapefruit Green Tea,Boba,Fruit
+6/24/2022,June,Friday,Tea Era,Grapefruit Green Tea,Boba,Fruit
+6/28/2022,June,Tuesday,Meet Fresh,Passion Fruit Green Tea,None,Fruit
+6/30/2022,June,Thursday,Boba Guys,Strawberry Passion Fruit Green Tea,None,Fruit
+7/1/2022,July,Friday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+7/11/2022,July,Monday,Gong Cha,Passion Fruit Green Tea,"Boba, Jelly",Fruit
+7/11/2022,July,Monday,Teaspoon,Guava Sunset,None,Fruit
+7/11/2022,July,Monday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+7/15/2022,July,Friday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+7/20/2022,July,Wednesday,TP Tea,Boba Milk Tea,Boba,Milk
+7/27/2022,July,Wednesday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+7/30/2022,July,Saturday,Gong Cha,Boba Milk Tea,Boba,Milk
+7/31/2022,July,Sunday,Tastea,Sunset Peach,Boba,Fruit
+8/3/2022,August,Wednesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+8/5/2022,August,Friday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+8/6/2022,August,Saturday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+8/10/2022,August,Wednesday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+8/16/2022,August,Tuesday,Tpumps,"Guava, Passion Fruit Black Tea",Boba,Fruit
+8/18/2022,August,Thursday,Teaspoon,House Milk Tea,Boba,Milk
+8/20/2022,August,Saturday,Boba Guys,Lychee Oolong,Boba,Fruit
+8/23/2022,August,Tuesday,TP Tea,Peach Fantasy Tea,"Boba, Jelly",Fruit
+8/28/2022,August,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+8/31/2022,August,Wednesday,TP Tea,Boba Milk Tea,Boba,Milk
+9/4/2022,September,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+9/5/2022,September,Monday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+9/11/2022,September,Sunday,Tea Era,Guava Green Tea,Boba,Fruit
+9/13/2022,September,Tuesday,TP Tea,Boba Milk Tea,Boba,Milk
+9/16/2022,September,Friday,Mr. Sun,Mango Green Tea,None,Fruit
+9/21/2022,September,Wednesday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+9/24/2022,September,Saturday,Tea Era,Boba Milk Tea,Boba,Milk
+9/25/2022,September,Sunday,Tea Era,Boba Milk Tea,Boba,Milk
+9/26/2022,September,Monday,Tea Era,Boba Milk Tea,Boba,Milk
+9/28/2022,September,Wednesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+10/9/2022,October,Sunday,Cafe Lattea,Black Milk Tea,Boba,Milk
+10/12/2022,October,Wednesday,Tea Era,Guava Green Tea,Boba,Fruit
+10/14/2022,October,Friday,TP Tea,Strawberry Matcha Latte,None,Milk
+10/15/2022,October,Saturday,7 Leaves,Oolong Milk Tea,Boba,Milk
+10/21/2022,October,Friday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+10/23/2022,October,Sunday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+10/26/2022,October,Wednesday,Yifang,Mango Pomelo Sago,None,Fruit
+10/28/2022,October,Friday,Tea Era,Black Milk Tea,Boba,Milk
+10/29/2022,October,Saturday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+10/29/2022,October,Saturday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+11/5/2022,November,Saturday,Bopomofo,Guava Matcha Latte,Boba,Milk
+11/9/2022,November,Wednesday,Boba Bar,Matcha Latte,Boba,Milk
+11/13/2022,November,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/15/2022,November,Tuesday,TP Tea,Boba Milk Tea,Boba,Milk
+11/19/2022,November,Saturday,Yoko Tea,Guava Green Tea,Boba,Fruit
+11/20/2022,November,Sunday,Tiger Sugar,Matcha Black Sugar Milk,Boba,Milk
+11/23/2022,November,Wednesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+11/27/2022,November,Sunday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+12/3/2022,December,Saturday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+12/8/2022,December,Thursday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+12/9/2022,December,Friday,Fantasia,Passion Fruit Green Tea,Boba,Fruit
+12/13/2022,December,Tuesday,Tastea,Boba Milk Tea,Boba,Milk
+12/17/2022,December,Saturday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+12/18/2022,December,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+12/19/2022,December,Monday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+12/29/2022,December,Thursday,Meet Fresh,Passion Fruit Green Tea,Boba,Fruit
+1/1/2023,January,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+1/4/2023,January,Wednesday,Moomo,Boba Milk Tea,Boba,Milk
+1/13/2023,January,Friday,Mr. Sun,Mango Green Tea,Mango Boba,Fruit
+1/20/2023,January,Friday,TP Tea,Strawberry Matcha Latte,None,Milk
+1/24/2023,January,Tuesday,TP Tea,Boba Milk Tea,Boba,Milk
+1/28/2023,January,Saturday,Tea Top,Earl Grey Milk Tea,"Boba, Jelly",Milk
+1/29/2023,January,Sunday,Dr. Ink,Oolong Milk Tea,Crystal Boba,Milk
+2/5/2023,February,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+2/8/2023,February,Wednesday,Tea Era,Boba Milk Tea,Boba,Milk
+2/12/2023,February,Sunday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+2/17/2023,February,Friday,TP Tea,Strawberry Matcha Latte,Boba,Milk
+2/18/2023,February,Saturday,Jazen Tea,Mango Green Tea,Boba,Fruit
+3/4/2023,March,Saturday,Truedan,Grapefruit Green Tea,Boba,Fruit
+3/5/2023,March,Sunday,Jooy,Strawberry Matcha Latte,Boba,Milk
+3/10/2023,March,Friday,Tpumps,"Passion Fruit, Mango, Peach Black Milk Tea",Boba,Milk
+3/12/2023,March,Sunday,Cafe Lattea,Black Milk Tea,Boba,Milk
+3/15/2023,March,Wednesday,Yifang,Peach Grapefruit Green Tea,None,Fruit
+3/16/2023,March,Thursday,Yifang,Fruit Tea,Boba,Fruit
+3/18/2023,March,Saturday,Teaspoon,House Milk Tea,Boba,Milk
+3/21/2023,March,Tuesday,Meet Fresh,Passion Fruit Green Tea,Boba,Fruit
+3/28/2023,March,Tuesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+3/31/2023,March,Friday,TP Tea,Passion Fruit Green Tea,None,Fruit
+4/1/2023,April,Saturday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+4/2/2023,April,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+4/9/2023,April,Sunday,TP Tea,Passion Fruit Green Tea,Boba,Fruit
+4/12/2023,April,Wednesday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+4/14/2023,April,Friday,Tastea,Sunset Peach,Boba,Fruit
+4/17/2023,April,Monday,Gong Cha,Grapefruit Green Tea,Boba,Fruit
+4/19/2023,April,Wednesday,Omomo,Omomo Matcha,Boba,Milk
+4/20/2023,April,Thursday,Orobae,Oolong Milk Tea,Boba,Milk
+4/27/2023,April,Thursday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+4/30/2023,April,Sunday,Tastea,Sunset Peach,Boba,Fruit
+5/2/2023,May,Tuesday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+5/6/2023,May,Saturday,Boba Beast,Black Milk Tea,Boba,Milk
+5/12/2023,May,Friday,Tan Cha,Matcha Brown Sugar,Boba,Milk
+5/14/2023,May,Sunday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+5/19/2023,May,Friday,Tastea,Mango Milk Tea,Boba,Milk
+5/22/2023,May,Monday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+5/26/2023,May,Friday,Tastea,Strawberry Milk Tea,Boba,Milk
+5/27/2023,May,Saturday,Calibear Cyber Cafe,Black Milk Tea,Boba,Milk
+5/29/2023,May,Monday,Sunright,Boba Milk Tea,Boba,Milk
+6/2/2023,June,Friday,Tea Era,Mango Green Tea,Boba,Fruit
+6/3/2023,June,Saturday,TP Tea,Strawberry Matcha Latte,None,Milk
+6/5/2023,June,Monday,Breaktime Tea,Passion Fruit Green Tea,None,Fruit
+6/9/2023,June,Friday,Tea Era,Passion Fruit Green Tea,Boba,Fruit
+6/17/2023,June,Saturday,Tea Era,Guava Slush,Boba,Fruit
+6/21/2023,June,Wednesday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+6/21/2023,June,Wednesday,Tea Era,Red Guava Green Tea,Boba,Fruit
+6/23/2023,June,Friday,OneMore,Black Milk Tea,Boba,Milk
+6/27/2023,June,Tuesday,Teaspoon,Lychee on Lychee,"Boba, Jelly",Fruit
+6/29/2023,June,Thursday,Verde,Mango Milk Tea,Boba,Milk
+6/30/2023,June,Friday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+6/30/2023,June,Friday,Teaspoon,Strawberry Matcha Latte,None,Milk
+7/1/2023,July,Saturday,TP Tea,Strawberry Matcha Latte,Boba,Milk
+7/6/2023,July,Thursday,Tpumps,"Guava, Passion Fruit Green Tea",Boba,Fruit
+7/17/2023,July,Monday,TP Tea,Boba Milk Tea,Boba,Milk
+7/20/2023,July,Thursday,Rabbit Rabbit Tea,Lychee Jasmine Green Milk Tea,Boba,Milk
+7/20/2023,July,Thursday,Boba Guys,Strawberry Jasmine,Boba,Fruit
+7/23/2023,July,Sunday,Zero&,Pink Guava Oasis,Boba,Fruit
+7/27/2023,July,Thursday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+8/1/2023,August,Tuesday,Teaspoon,House Milk Tea,Boba,Milk
+8/2/2023,August,Wednesday,Cafe Lattea,Passion Fruit Green Tea,Boba,Fruit
+8/5/2023,August,Saturday,Li Cha Tea,Passion Pineapple Fruit Tea,Boba,Fruit
+8/6/2023,August,Sunday,Ume Tea,Strawberry Matcha Latte,None,Milk
+8/7/2023,August,Monday,Happy Lemon,Passion Fruit Mango Green Tea,None,Fruit
+8/8/2023,August,Tuesday,7 Leaves,Matcha Soy Latte,Boba,Milk
+8/9/2023,August,Wednesday,Cafe Lattea,Strawberry Peach Black Tea,None,Fruit
+8/10/2023,August,Thursday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+8/11/2023,August,Friday,Ti Bear,Strawberry Matcha Latte,None,Milk
+8/16/2023,August,Wednesday,TP Tea,Passion Fruit Green Tea,Boba,Fruit
+8/17/2023,August,Thursday,TP Tea,Boba Milk Tea,Boba,Milk
+8/18/2023,August,Friday,Mr. Sun,Mango Green Tea,Boba,Fruit
+8/21/2023,August,Monday,TP Tea,Strawberry Milk Tea,Boba,Milk
+8/21/2023,August,Monday,Tisane,Peach Please,Boba,Fruit
+8/22/2023,August,Tuesday,Tpumps,"Passion Fruit, Guava, Pineapple Green Tea",Boba,Fruit
+8/24/2023,August,Thursday,Rabbit Rabbit Tea,Lychee Jasmine Green Milk Tea,Boba,Milk
+8/25/2023,August,Friday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+9/2/2023,September,Saturday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+9/3/2023,September,Sunday,Ten Ren,Black Milk Tea,Boba,Milk
+9/4/2023,September,Monday,Tea Era,Passion Fruit Green Tea,Boba,Fruit
+9/6/2023,September,Wednesday,Mr. Sun,Rainbow Boba Milk Tea,Rainbow Boba,Milk
+9/12/2023,September,Tuesday,Sunright,Grapefruit Green Tea,Boba,Fruit
+9/15/2023,September,Friday,TP Tea,Boba Milk Tea,Boba,Milk
+9/16/2023,September,Saturday,Beastea,Black Milk Tea,Boba,Milk
+9/17/2023,September,Sunday,Tpumps,"Passion Fruit, Mango, Peach Green Tea",Boba,Fruit
+9/18/2023,September,Monday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+9/20/2023,September,Wednesday,Moge Tee,Matcha Creme Brulee,Boba,Milk
+9/22/2023,September,Friday,Boba Gem,Mango Green Tea,Boba,Fruit
+9/29/2023,September,Friday,Boba Up,Black Milk Tea,Boba,Milk
+10/1/2023,October,Sunday,Don't Yell At Me,Mango Green Tea,Boba,Fruit
+10/4/2023,October,Wednesday,Boba Gem,Mango Green Tea,Boba,Fruit
+10/6/2023,October,Friday,Ding Tea,Oolong Milk Tea,Boba,Milk
+10/8/2023,October,Sunday,Sunright,Strawberry Matcha Latte,Boba,Milk
+10/13/2023,October,Friday,Boba Gem,Mango Green Tea,Boba,Fruit
+10/15/2023,October,Sunday,Seattle Best Tea,Passion Fruit Green Tea,Boba,Fruit
+10/20/2023,October,Friday,Boba Gem,Black Milk Tea,Boba,Milk
+10/22/2023,October,Sunday,Oasis,Passion Fruit Green Tea,Boba,Fruit
+10/23/2023,October,Monday,Boba Gem,Mango Green Tea,Boba,Fruit
+10/26/2023,October,Thursday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+11/11/2023,November,Saturday,Seattle Best Tea,Mango Green Tea,Boba,Fruit
+11/18/2023,November,Saturday,Boba Lust,House Milk Tea,"Boba, Jelly",Milk
+11/24/2023,November,Friday,Tea Era,Strawberry Matcha Latte,"Boba, Jelly",Milk
+11/24/2023,November,Friday,Tpumps,"Passion Fruit, Guava, Pineapple Green Tea",Boba,Fruit
+11/25/2023,November,Saturday,Ten Ren,Mango Green Tea,Boba,Fruit
+11/25/2023,November,Saturday,Gong Cha,Strawberry Milk Tea,Boba,Milk
+11/25/2023,November,Saturday,Tea Era,Strawberry Matcha Latte,"Boba, Jelly",Milk
+12/3/2023,December,Sunday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+12/10/2023,December,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+12/14/2023,December,Thursday,Teaspoon,Lychee on Lychee,"Boba, Jelly",Fruit
+12/23/2023,December,Saturday,Hey Tea,Brown Sugar Boba Milk Tea,Boba,Milk
+12/28/2023,December,Thursday,Milksha,Oolong Milk Tea,Boba,Milk
+12/31/2023,December,Sunday,Tpumps,"Passion Fruit, Guava, Pineapple Green Tea",Boba,Fruit
+1/12/2024,January,Friday,Macu,Boba Milk Tea,Boba,Milk
+1/13/2024,January,Saturday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+1/18/2024,January,Thursday,Seattle Best Tea,Mango Green Tea,Boba,Fruit
+1/20/2024,January,Saturday,Boba Lust,House Milk Tea,"Boba, Jelly",Milk
+1/27/2024,January,Saturday,Pink Pig,Green Milk Tea,Jelly,Milk
+1/28/2024,January,Sunday,Orobae,Oolong Milk Tea,Boba,Milk
+2/3/2024,February,Saturday,TP Tea,Strawberry Matcha Latte,Boba,Milk
+2/10/2024,February,Saturday,Sunright,Boba Milk Tea,Boba,Milk
+2/17/2024,February,Saturday,Moge Tee,Grapefruit Green Tea,Boba,Fruit
+2/19/2024,February,Monday,TP Tea,QQ Milk Tea,"Boba, Jelly",Milk
+2/25/2024,February,Sunday,Sunright,Oolong Milk Tea,Boba,Milk
+3/3/2024,March,Sunday,Oh Bear Cafe,Mango Black Tea,Boba,Fruit
+3/10/2024,March,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+3/14/2024,March,Thursday,TP Tea,Boba Milk Tea,Boba,Milk
+3/16/2024,March,Saturday,Teaspoon,House Milk Tea,Boba,Milk
+3/17/2024,March,Sunday,Tpumps,"Passion Fruit, Mango, Peach Black Milk Tea",Boba,Milk
+3/18/2024,March,Monday,Tea Era,Guava Cooler,Boba,Fruit
+3/19/2024,March,Tuesday,Tpumps,"Strawberry, Tangerine, Pineapple Black Tea",Boba,Fruit
+3/19/2024,March,Tuesday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+3/21/2024,March,Thursday,Boba Guys,Strawberry Jasmine Fresca,None,Fruit
+3/22/2024,March,Friday,ChiCha San Chen,Lemon Condensed Milk,Boba,Milk
+3/23/2024,March,Saturday,Share Tea,Green Milk Tea,Boba,Milk
+3/30/2024,March,Saturday,TP Tea,Strawberry Milk Tea,Boba,Milk
+3/31/2024,March,Sunday,Macu,Golden Leaf Milk Tea,Boba,Milk
+4/6/2024,April,Saturday,Sunright,Mango Milk Tea,Boba,Milk
+4/13/2024,April,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+4/14/2024,April,Sunday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+4/17/2024,April,Wednesday,Macu,Peach Milk Tea,Boba,Milk
+4/19/2024,April,Friday,ComeBuy Tea,Oolong Milk Tea,Boba,Milk
+4/20/2024,April,Saturday,TP Tea,QQ Milk Tea,"Boba, Jelly",Milk
+4/27/2024,April,Saturday,Macu,Oolong Milk Tea,Boba,Milk
+4/30/2024,April,Tuesday,Sunright,Mango Milk Tea,Boba,Milk
+5/4/2024,May,Saturday,Boba Gem,Mango Milk Tea,Boba,Milk
+5/9/2024,May,Thursday,Tea Top,Earl Grey Milk Tea,Boba,Milk
+5/12/2024,May,Sunday,Mr. Sun,Rainbow Boba Milk Tea,Boba,Milk
+5/16/2024,May,Thursday,Sunright,Mango Green Tea,Boba,Fruit
+5/18/2024,May,Saturday,TP Tea,QQ Milk Tea,"Boba, Jelly",Milk
+5/26/2024,May,Sunday,Sunright,Oolong Milk Tea,Boba,Milk
+5/27/2024,May,Monday,TP Tea,Boba Milk Tea,Boba,Milk
+6/3/2024,June,Monday,TP Tea,TP Milk Tea,Jelly,Milk
+6/4/2024,June,Tuesday,Tpumps,"Tangerine, Pineapple, Guava Green Tea",Boba,Fruit
+6/7/2024,June,Friday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+6/9/2024,June,Sunday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+6/11/2024,June,Tuesday,Boba Guys,Mango Jasmine Fresca,None,Fruit
+6/12/2024,June,Wednesday,Wanpo,Black Milk Tea,Boba,Milk
+6/15/2024,June,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+6/19/2024,June,Wednesday,Teaspoon,House Milk Tea,Boba,Milk
+6/25/2024,June,Tuesday,Tpumps,"Passion Fruit, Tangerine, Guava Green Tea",Boba,Fruit
+6/26/2024,June,Wednesday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+6/28/2024,June,Friday,Cafe Lattea,Black Milk Tea,Boba,Milk
+7/2/2024,July,Tuesday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+7/6/2024,July,Saturday,Mr. Green Bubble,Mango Milk Tea,Boba,Milk
+7/12/2024,July,Friday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+7/14/2024,July,Sunday,7 Leaves,Oolong Milk Tea,Boba,Milk
+7/17/2024,July,Wednesday,Tea Era,Red Guava Green Tea,Boba,Fruit
+7/20/2024,July,Saturday,Pekoe,Oolong Milk Tea,Boba,Milk
+7/23/2024,July,Tuesday,Tea Top,Mango Green Tea,Boba,Fruit
+7/24/2024,July,Wednesday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+7/29/2024,July,Monday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+7/31/2024,July,Wednesday,TP Tea,Boba Milk Tea,Boba,Milk
+8/2/2024,August,Friday,Tastea,Mango Milk Tea,Boba,Milk
+8/3/2024,August,Saturday,TP Tea,Strawberry Matcha Latte,None,Milk
+8/7/2024,August,Wednesday,Yifang,Boba Milk Tea,Boba,Milk
+8/16/2024,August,Friday,Ten Ren,Passion Fruit Green Tea,Boba,Fruit
+8/20/2024,August,Tuesday,Tpumps,"Passion Fruit, Mango, Peach Green Tea",Boba,Fruit
+8/22/2024,August,Thursday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+8/26/2024,August,Monday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+8/29/2024,August,Thursday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+9/1/2024,September,Sunday,Teaspoon,House Milk Tea,Boba,Milk
+9/2/2024,September,Monday,Share Tea,Boba Milk Tea,Boba,Milk
+9/6/2024,September,Friday,Wushiland,Oolong Milk Tea,Boba,Milk
+9/9/2024,September,Monday,Meet Fresh,Classic Milk Tea,Boba,Milk
+9/13/2024,September,Friday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+9/15/2024,September,Sunday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+9/22/2024,September,Sunday,Macu,Oolong Milk Tea,Boba,Milk
+9/27/2024,September,Friday,Seattle Best Tea,Oolong Milk Tea,"Boba, Jelly",Milk
+9/28/2024,September,Saturday,Macu,Black Milk Tea,Boba,Milk
+10/6/2024,October,Sunday,TP Tea,QQ Milk Tea,"Boba, Jelly",Milk
+10/12/2024,October,Saturday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+10/17/2024,October,Thursday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+10/21/2024,October,Monday,Seattle Best Tea,Oolong Milk Tea,Boba,Milk
+10/29/2024,October,Tuesday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+10/30/2024,October,Wednesday,Macu,Oolong Milk Tea,Boba,Milk
+11/1/2024,November,Friday,TP Tea,Boba Milk Tea,Boba,Milk
+11/3/2024,November,Sunday,Sunright,Oolong Milk Tea,Boba,Milk
+11/6/2024,November,Wednesday,Timeless Tea,Coffee Milk Tea,None,Milk
+11/8/2024,November,Friday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+11/9/2024,November,Saturday,ComeBuy Tea,Grapefruit Oolong,Aloe,Fruit
+11/14/2024,November,Thursday,ComeBuy Tea,Oolong Milk Tea,Boba,Milk
+11/17/2024,November,Sunday,Macu,Oolong Milk Tea,Boba,Milk
+11/21/2024,November,Thursday,Boba Gem,Mango Milk Tea,Boba,Milk
+11/27/2024,November,Wednesday,TP Tea,Tieguyan Milk Tea,"Boba, Jelly, Pudding",Milk
+11/27/2024,November,Wednesday,Cafe Lattea,Black Milk Tea,Boba,Milk
+11/29/2024,November,Friday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+11/30/2024,November,Saturday,Meet Fresh,Strawberry Passion Fruit Green Tea,Boba,Fruit
+12/6/2024,December,Friday,ComeBuy Tea,Oolong Milk Tea,Boba,Milk
+12/15/2024,December,Sunday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+12/21/2024,December,Saturday,Shang Yu Lin,Oolong Milk Tea,Boba,Milk
+12/31/2024,December,Tuesday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+1/2/2025,January,Thursday,Shang Yu Lin,Oolong Milk Tea,Boba,Milk
+1/9/2025,January,Thursday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+1/11/2025,January,Saturday,ComeBuy Tea ,Grapefruit Oolong,Aloe,Fruit
+1/18/2025,January,Saturday,Macu,Oolong Milk Tea,Boba,Milk
+1/28/2025,January,Tuesday,TP Tea,Boba Milk Tea,Boba,Milk
+2/2/2025,February,Sunday,Just Boba,Oolong Milk Tea,Boba,Milk
+2/6/2025,February,Thursday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+2/15/2025,February,Saturday,Bopomofo,Guave Matcha Latte,Boba,Milk
+2/17/2025,February,Monday,ComeBuy Tea ,Oolong Milk Tea,Boba,Milk
+2/28/2025,February,Friday,Macu,Oolong Milk Tea,Boba,Milk
+3/2/2025,March,Sunday,Don't Yell At Me,Traditional Milk Tea,None,Milk
+3/12/2025,March,Wednesday,Sunright,Mango Milk Tea,Boba,Milk
+3/16/2025,March,Sunday,ComeBuy Tea ,Lychee Oolong ,"Boba, Aloe",Fruit
+3/21/2025,March,Friday,Cafe Lattea,Black Milk Tea,Boba,Milk
+3/23/2025,March,Sunday,TP Tea,Mango Milk Tea,Boba,Milk
+4/1/2025,April,Tuesday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+4/12/2025,April,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+4/20/2025,April,Sunday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+4/26/2025,April,Saturday,Sunright,Oolong Milk Tea,Boba,Milk
+5/6/2025,May,Tuesday,ComeBuy Tea ,Lychee Oolong ,Aloe,Fruit
+5/12/2025,May,Monday,ComeBuy Tea ,Grapefruit Oolong,Aloe,Fruit
+5/17/2025,May,Saturday,TP Tea,QQ Milk Tea,"Boba, Jelly",Milk
+5/18/2025,May,Sunday,CoCo,Passion Fruit Green Tea,None,Fruit
+5/25/2025,May,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+5/28/2025,May,Wednesday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+6/2/2025,June,Monday,Don't Yell At Me,Traditional Milk Tea,Boba,Milk
+6/6/2025,June,Friday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+6/15/2025,June,Sunday,TP Tea,Boba Milk Tea,Boba,Milk
+6/18/2025,June,Wednesday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+6/25/2025,June,Wednesday,Cafe Lattea,Black Milk Tea,Boba,Milk
+6/27/2025,June,Friday,Boba Guys,Strawberry Matcha Latte,Boba,Milk
+7/2/2025,July,Wednesday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+7/14/2025,July,Monday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+7/14/2025,July,Monday,Tpumps,"Passion Fruit, Mango, Peach Green Tea",None,Fruit
+7/30/2025,July,Wednesday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+7/31/2025,July,Thursday,Boba Guys,Mango Jasmine Fresca,Boba,Fruit
+8/2/2025,August,Saturday,Happy Lemon,Passion Fruit Green Tea,Boba,Fruit
+8/9/2025,August,Saturday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+8/16/2025,August,Saturday,Sunright,Oolong Milk Tea,Boba,Milk
+8/18/2025,August,Monday,Hey Tea,Grape Boom,None,Fruit
+8/20/2025,August,Wednesday,Yifang,Mango Pomelo Sago,Sago,Fruit
+8/30/2025,August,Saturday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+9/2/2025,September,Tuesday,Hey Tea,Mango Grapefruit Boom,None,Fruit
+9/6/2025,September,Saturday,TP Tea,Boba Milk Tea,Boba,Milk
+9/18/2025,September,Thursday,7 Leaves,Oolong Milk Tea,Boba,Milk
+9/19/2025,September,Friday,TP Tea,Mango Boba Milk Tea,Boba,Milk
+9/21/2025,September,Sunday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+9/27/2025,September,Saturday,TP Tea,Passion Fruit Green Tea,None,Fruit
+9/29/2025,September,Monday,Macu,Oolong Milk Tea,Boba,Milk
+10/7/2025,October,Tuesday,Macu,Grapefruit Li Li Tea,Boba,Fruit
+10/18/2025,October,Saturday,CoCo,Mango Pomelo Sago,Sago,Fruit
+10/21/2025,October,Tuesday,Macu,Oolong Milk Tea,Boba,Milk
+10/22/2025,October,Wednesday,Don't Yell At Me,Traditional Milk Tea,None,Milk
+10/26/2025,October,Sunday,Macu,Grapefruit Li Li Tea,Boba,Fruit
+10/31/2025,October,Friday,Don't Yell At Me,Traditional Milk Tea,None,Milk
+11/2/2025,November,Sunday,Macu,Oolong Milk Tea,Boba,Milk
+11/8/2025,November,Saturday,Sunright,Oolong Milk Tea,Boba,Milk
+11/8/2025,November,Saturday,CoCo,Passion Fruit Green Tea,None,Fruit
+11/21/2025,November,Friday,TP Tea,QQ Milk Tea,"Boba, Jelly",Milk
+11/26/2025,November,Wednesday,ChiCha San Chen,Dong Ding Oolong Milk Tea,Boba,Milk
+12/8/2025,December,Monday,Hey Tea,Mango Grapefruit Boom ,Sago,Fruit
+12/12/2025,December,Friday,TP Tea,Velvet Lychee Fresh Milk Tea,Boba,Milk
+12/19/2025,December,Friday,Hey Tea,Mango Grapefruit Boom ,Sago,Fruit
+12/20/2025,December,Saturday,Shang Yu Lin,Oolong Milk Tea,Boba,Milk
+12/23/2025,December,Tuesday,Hey Tea,Mango Grapefruit Boom ,Sago,Fruit
+12/29/2025,December,Monday,Meet Fresh,Oolong Milk Tea,Boba,Milk
