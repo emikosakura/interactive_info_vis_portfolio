@@ -78,7 +78,9 @@ registerSketch('sk5', function (p) {
     p.text("My Boba Consumption: 2021–2025", 16, 14);
     p.pop();
 
+    // background layers
     drawSeasonBands(innerR, outerRMax);
+    drawRadialRings(innerR, outerRMax, maxMonthTotal);
 
     function drawSeasonBands(innerR, outerRMax) {
       const startAngle = -p.HALF_PI;
@@ -114,6 +116,22 @@ registerSketch('sk5', function (p) {
       }
   
       for (const s of seasons) drawRange(s.start, s.end, s.col);
+    }
+
+    function drawRadialRings(innerR, outerRMax, maxValue) {
+      p.push();
+      const outerRMin = innerR + 20;
+      const step = 20;
+  
+      p.noFill();
+      p.stroke(210);
+      p.strokeWeight(1);
+  
+      for (let v = step; v <= maxValue; v += step) {
+        const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
+        p.circle(0, 0, r * 2);
+      }
+      p.pop();
     }
     
 
