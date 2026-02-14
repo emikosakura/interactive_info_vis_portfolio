@@ -78,6 +78,45 @@ registerSketch('sk5', function (p) {
     p.text("My Boba Consumption: 2021–2025", 16, 14);
     p.pop();
 
+    drawSeasonBands(innerR, outerRMax);
+
+    function drawSeasonBands(innerR, outerRMax) {
+      const startAngle = -p.HALF_PI;
+      const step = p.TWO_PI / 12;
+  
+      const bandInner = innerR + 6;
+      const bandOuter = outerRMax + 10;
+  
+      const seasons = [
+        { start: 11, end: 1,  col: p.color(210, 225, 245) }, // Winter: Dec-Feb
+        { start: 2,  end: 4,  col: p.color(215, 240, 220) }, // Spring: Mar-May
+        { start: 5,  end: 7,  col: p.color(255, 240, 200) }, // Summer: Jun-Aug
+        { start: 8,  end: 10, col: p.color(240, 220, 200) }  // Fall: Sep-Nov
+      ];
+  
+      p.noStroke();
+  
+      function drawRange(startIdx, endIdx, baseCol) {
+        const fillCol = p.color(p.red(baseCol), p.green(baseCol), p.blue(baseCol), 70);
+        if (startIdx <= endIdx) {
+          const a0 = startAngle + startIdx * step;
+          const a1 = startAngle + (endIdx + 1) * step;
+          drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+        } else {
+          // wrap-around
+          let a0 = startAngle + startIdx * step;
+          let a1 = startAngle + 12 * step;
+          drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+          a0 = startAngle;
+          a1 = startAngle + (endIdx + 1) * step;
+          drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+        }
+      }
+  
+      for (const s of seasons) drawRange(s.start, s.end, s.col);
+    }
+    
+
   }
 
   p.windowResized = function () { p.resizeCanvas(800, 800); };
