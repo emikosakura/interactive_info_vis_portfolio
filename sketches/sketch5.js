@@ -182,6 +182,7 @@ registerSketch('sk5', function (p) {
       }
     }
 
+    drawRadialLabels(innerR, outerRMax, maxMonthTotal);
 
     drawLegend();
     drawAnnotation();
@@ -207,6 +208,50 @@ registerSketch('sk5', function (p) {
         p.vertex(p.cos(a) * rInner, p.sin(a) * rInner);
       }
       p.endShape(p.CLOSE);
+    }
+
+    function drawRadialRings(innerR, outerRMax, maxValue) {
+      p.push();
+      const outerRMin = innerR + 20;
+      const step = 20;
+  
+      p.noFill();
+      p.stroke(210);
+      p.strokeWeight(1);
+  
+      for (let v = step; v <= maxValue; v += step) {
+        const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
+        p.circle(0, 0, r * 2);
+      }
+      p.pop();
+    }
+  
+    function drawRadialLabels(innerR, outerRMax, maxValue) {
+      p.push();
+      const outerRMin = innerR + 20;
+      const step = 20;
+  
+      p.textSize(10);
+      p.textAlign(p.CENTER, p.CENTER);
+  
+      for (let v = step; v <= maxValue; v += step) {
+        const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
+        const s = String(v);
+  
+        const labelX = 0;
+        const labelY = -r;
+  
+        p.push();
+        p.rectMode(p.CENTER);
+        p.noStroke();
+        p.fill(255, 230);
+        p.rect(labelX, labelY, p.textWidth(s) + 12, 16, 7);
+  
+        p.fill(120);
+        p.text(s, labelX, labelY);
+        p.pop();
+      }
+      p.pop();
     }
 
     function drawSeasonBands(innerR, outerRMax) {
@@ -243,47 +288,6 @@ registerSketch('sk5', function (p) {
       }
   
       for (const s of seasons) drawRange(s.start, s.end, s.col);
-    }
-
-    function drawRadialRings(innerR, outerRMax, maxValue) {
-      p.push();
-      const outerRMin = innerR + 20;
-      const step = 20;
-  
-      p.noFill();
-      p.stroke(210);
-      p.strokeWeight(1);
-  
-      for (let v = step; v <= maxValue; v += step) {
-        const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
-        p.circle(0, 0, r * 2);
-      }
-      p.pop();
-    }
-
-    function drawLegend() {
-      p.push();
-      p.resetMatrix();
-  
-      const x = 16, y = p.height - 78;
-  
-      p.noStroke();
-      p.fill(20);
-      p.textSize(12);
-      p.textAlign(p.LEFT, p.TOP);
-      p.text("Legend", x, y);
-  
-      p.fill(140, 110, 80);
-      p.rect(x, y + 22, 14, 14, 3);
-      p.fill(20);
-      p.text("Milk", x + 20, y + 22);
-  
-      p.fill(230, 160, 170);
-      p.rect(x, y + 42, 14, 14, 3);
-      p.fill(20);
-      p.text("Fruit", x + 20, y + 42);
-  
-      p.pop();
     }
 
     function drawAnnotation() {
