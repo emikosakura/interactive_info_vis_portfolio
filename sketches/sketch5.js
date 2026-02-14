@@ -60,6 +60,16 @@ registerSketch('sk5', function (p) {
 
   p.draw = function () {
     p.background(255);
+    p.translate(p.width/2, p.height/2);
+
+    // chart title
+    p.push();
+    p.resetMatrix();
+    p.fill(20);
+    p.textSize(16);
+    p.textAlign(p.LEFT, p.TOP);
+    p.text("My Boba Consumption: 2021–2025", 16, 14);
+    p.pop();
 
   }
 
