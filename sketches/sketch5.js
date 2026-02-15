@@ -1,8 +1,3 @@
-// ===============================
-// Boba Tracker Radial Narrative (REGISTER SKETCH / INSTANCE MODE)
-// Hover tooltip shows month + % total + % Milk/Fruit
-// ===============================
-
 registerSketch('sk5', function (p) {
   let table;
 
@@ -18,24 +13,20 @@ registerSketch('sk5', function (p) {
   let totalAllDrinks = 0;
   let hoveredMonth = null;
 
-  p.preload = function () {
-    // If sketch5.js is inside /sketches and CSV is in root, use "../boba-tracker.csv"
-    // If sketch5.js is in root with the CSV, use "boba-tracker.csv"
-    table = p.loadTable("../boba-tracker.csv", "csv", "header");
-  };
+  p.preload = function() {
+    table = p.loadTable('boba-tracker.csv', 'csv', 'header');
+  }
 
   p.setup = function () {
-    p.createCanvas(700, 700);
-    p.textFont("monospace");
+    p.createCanvas(800, 800);
+    p.textFont('monospace');
     p.angleMode(p.RADIANS);
 
-    // Initialize
     for (let m of months) {
       monthCounts[m] = 0;
       monthTypeCounts[m] = { Milk: 0, Fruit: 0 };
     }
 
-    // Count rows
     for (let r = 0; r < table.getRowCount(); r++) {
       let mRaw, typeRaw;
 
@@ -59,7 +50,6 @@ registerSketch('sk5', function (p) {
       else if (type === "Fruit") monthTypeCounts[m].Fruit++;
     }
 
-    // Max + total for % calc
     maxMonthTotal = 0;
     totalAllDrinks = 0;
     for (let m of months) {
@@ -70,9 +60,8 @@ registerSketch('sk5', function (p) {
 
   p.draw = function () {
     p.background(255);
-    p.translate(p.width / 2, p.height / 2);
+    p.translate(p.width/2, p.height/2);
 
-    // Layout constants
     const innerR = 90;
     const outerRMin = innerR + 20;
     const outerRMax = 230;
@@ -80,7 +69,7 @@ registerSketch('sk5', function (p) {
     const startAngle = -p.HALF_PI;
     const gapFrac = 0.92;
 
-    // Title (screen coords)
+    // chart title
     p.push();
     p.resetMatrix();
     p.fill(20);
@@ -89,13 +78,12 @@ registerSketch('sk5', function (p) {
     p.text("My Boba Consumption: 2021–2025", 16, 14);
     p.pop();
 
-    // Background layers
+    // background layers
     drawSeasonBands(innerR, outerRMax);
     drawRadialRings(innerR, outerRMax, maxMonthTotal);
 
-    // Hover detection
+    // hover detection
     hoveredMonth = null;
-
     const mx = p.mouseX - p.width / 2;
     const my = p.mouseY - p.height / 2;
     const rMouse = p.sqrt(mx * mx + my * my);
@@ -121,7 +109,7 @@ registerSketch('sk5', function (p) {
 
     if (inAngle && inRadius && totalC > 0) hoveredMonth = candidate;
 
-    // Draw wedges
+    // draw wedges
     for (let i = 0; i < 12; i++) {
       const m = months[i];
       const total = monthCounts[m];
@@ -194,7 +182,6 @@ registerSketch('sk5', function (p) {
       }
     }
 
-    // Grid labels on top
     drawRadialLabels(innerR, outerRMax, maxMonthTotal);
 
     // Center hole
@@ -211,196 +198,198 @@ registerSketch('sk5', function (p) {
     // Tooltip
     if (hoveredMonth) drawTooltip(hoveredMonth);
 
-    // Bottom annotation + legend
-    drawAnnotation();
     drawLegend();
-  };
+    drawAnnotation();
 
-  // ----------- Drawing helpers (instance mode) -----------
+    // helper methods below
 
-  function isAngleBetween(a, a0, a1) {
-    a = (a + p.TWO_PI) % p.TWO_PI;
-    a0 = (a0 + p.TWO_PI) % p.TWO_PI;
-    a1 = (a1 + p.TWO_PI) % p.TWO_PI;
-    if (a0 <= a1) return a >= a0 && a <= a1;
-    return a >= a0 || a <= a1;
-  }
-
-  function drawRingSegment(rInner, rOuter, a0, a1, c) {
-    p.noStroke();
-    p.fill(c);
-    p.beginShape();
-    for (let a = a0; a <= a1; a += 0.01) {
-      p.vertex(p.cos(a) * rOuter, p.sin(a) * rOuter);
+    function isAngleBetween(a, a0, a1) {
+      a = (a + p.TWO_PI) % p.TWO_PI;
+      a0 = (a0 + p.TWO_PI) % p.TWO_PI;
+      a1 = (a1 + p.TWO_PI) % p.TWO_PI;
+      if (a0 <= a1) return a >= a0 && a <= a1;
+      return a >= a0 || a <= a1;
     }
-    for (let a = a1; a >= a0; a -= 0.01) {
-      p.vertex(p.cos(a) * rInner, p.sin(a) * rInner);
-    }
-    p.endShape(p.CLOSE);
-  }
-
-  function drawRadialRings(innerR, outerRMax, maxValue) {
-    p.push();
-    const outerRMin = innerR + 20;
-    const step = 20;
-
-    p.noFill();
-    p.stroke(210);
-    p.strokeWeight(1);
-
-    for (let v = step; v <= maxValue; v += step) {
-      const r = p.map(v, 0, maxValue || 1, outerRMin, outerRMax);
-      p.circle(0, 0, r * 2);
-    }
-    p.pop();
-  }
-
-  function drawRadialLabels(innerR, outerRMax, maxValue) {
-    p.push();
-    const outerRMin = innerR + 20;
-    const step = 20;
-
-    p.textSize(10);
-    p.textAlign(p.CENTER, p.CENTER);
-
-    for (let v = step; v <= maxValue; v += step) {
-      const r = p.map(v, 0, maxValue || 1, outerRMin, outerRMax);
-      const s = String(v);
-
-      const labelX = 0;
-      const labelY = -r;
-
-      p.push();
-      p.rectMode(p.CENTER);
+  
+    function drawRingSegment(rInner, rOuter, a0, a1, c) {
       p.noStroke();
-      p.fill(255, 230);
-      p.rect(labelX, labelY, p.textWidth(s) + 12, 16, 7);
-
-      p.fill(120);
-      p.text(s, labelX, labelY);
+      p.fill(c);
+      p.beginShape();
+      for (let a = a0; a <= a1; a += 0.01) {
+        p.vertex(p.cos(a) * rOuter, p.sin(a) * rOuter);
+      }
+      for (let a = a1; a >= a0; a -= 0.01) {
+        p.vertex(p.cos(a) * rInner, p.sin(a) * rInner);
+      }
+      p.endShape(p.CLOSE);
+    }
+  
+    function drawRadialRings(innerR, outerRMax, maxValue) {
+      p.push();
+      const outerRMin = innerR + 20;
+      const step = 20;
+  
+      p.noFill();
+      p.stroke(210);
+      p.strokeWeight(1);
+  
+      for (let v = step; v <= maxValue; v += step) {
+        const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
+        p.circle(0, 0, r * 2);
+      }
       p.pop();
     }
-    p.pop();
-  }
-
-  function drawTooltip(monthName) {
-    const total = monthCounts[monthName];
-    const milk = monthTypeCounts[monthName].Milk;
-    const fruit = monthTypeCounts[monthName].Fruit;
-
-    const pctTotal = totalAllDrinks > 0 ? (total / totalAllDrinks) * 100 : 0;
-    const pctMilk = total > 0 ? (milk / total) * 100 : 0;
-    const pctFruit = total > 0 ? (fruit / total) * 100 : 0;
-
-    const lines = [
-      `${monthName}`,
-      `${p.nf(pctTotal, 0, 1)}% of total drinks (${total})`,
-      `Milk: ${p.nf(pctMilk, 0, 1)}% • Fruit: ${p.nf(pctFruit, 0, 1)}%`
-    ];
-
-    p.push();
-    p.resetMatrix();
-
-    p.textFont("monospace");
-    p.textSize(12);
-
-    let x = p.mouseX + 12;
-    let y = p.mouseY + 12;
-
-    let w = 0;
-    for (let s of lines) w = p.max(w, p.textWidth(s));
-    const padding = 10;
-    const h = lines.length * 16 + padding;
-
-    if (x + w + padding * 2 > p.width) x = p.mouseX - (w + padding * 2) - 12;
-    if (y + h > p.height) y = p.mouseY - h - 12;
-
-    p.noStroke();
-    p.fill(255, 245);
-    p.rect(x, y, w + padding * 2, h, 10);
-
-    p.fill(30);
-    p.textAlign(p.LEFT, p.TOP);
-    for (let i = 0; i < lines.length; i++) {
-      p.text(lines[i], x + padding, y + 6 + i * 16);
-    }
-
-    p.pop();
-  }
-
-  function drawLegend() {
-    p.push();
-    p.resetMatrix();
-
-    const x = 16, y = p.height - 78;
-
-    p.noStroke();
-    p.fill(20);
-    p.textSize(12);
-    p.textAlign(p.LEFT, p.TOP);
-    p.text("Legend", x, y);
-
-    p.fill(140, 110, 80);
-    p.rect(x, y + 22, 14, 14, 3);
-    p.fill(20);
-    p.text("Milk", x + 20, y + 22);
-
-    p.fill(230, 160, 170);
-    p.rect(x, y + 42, 14, 14, 3);
-    p.fill(20);
-    p.text("Fruit", x + 20, y + 42);
-
-    p.pop();
-  }
-
-  function drawSeasonBands(innerR, outerRMax) {
-    const startAngle = -p.HALF_PI;
-    const step = p.TWO_PI / 12;
-
-    const bandInner = innerR + 6;
-    const bandOuter = outerRMax + 10;
-
-    const seasons = [
-      { start: 11, end: 1,  col: p.color(210, 225, 245) }, // Winter: Dec-Feb
-      { start: 2,  end: 4,  col: p.color(215, 240, 220) }, // Spring: Mar-May
-      { start: 5,  end: 7,  col: p.color(255, 240, 200) }, // Summer: Jun-Aug
-      { start: 8,  end: 10, col: p.color(240, 220, 200) }  // Fall: Sep-Nov
-    ];
-
-    p.noStroke();
-
-    function drawRange(startIdx, endIdx, baseCol) {
-      const fillCol = p.color(p.red(baseCol), p.green(baseCol), p.blue(baseCol), 70);
-      if (startIdx <= endIdx) {
-        const a0 = startAngle + startIdx * step;
-        const a1 = startAngle + (endIdx + 1) * step;
-        drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
-      } else {
-        let a0 = startAngle + startIdx * step;
-        let a1 = startAngle + 12 * step;
-        drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
-        a0 = startAngle;
-        a1 = startAngle + (endIdx + 1) * step;
-        drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+  
+    function drawRadialLabels(innerR, outerRMax, maxValue) {
+      p.push();
+      const outerRMin = innerR + 20;
+      const step = 20;
+  
+      p.textSize(10);
+      p.textAlign(p.CENTER, p.CENTER);
+  
+      for (let v = step; v <= maxValue; v += step) {
+        const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
+        const s = String(v);
+  
+        const labelX = 0;
+        const labelY = -r;
+  
+        p.push();
+        p.rectMode(p.CENTER);
+        p.noStroke();
+        p.fill(255, 230);
+        p.rect(labelX, labelY, p.textWidth(s) + 12, 16, 7);
+  
+        p.fill(120);
+        p.text(s, labelX, labelY);
+        p.pop();
       }
+      p.pop();
+    }
+  
+    function drawTooltip(monthName) {
+      const total = monthCounts[monthName];
+      const milk = monthTypeCounts[monthName].Milk;
+      const fruit = monthTypeCounts[monthName].Fruit;
+  
+      const pctTotal = totalAllDrinks > 0 ? (total / totalAllDrinks) * 100 : 0;
+      const pctMilk = total > 0 ? (milk / total) * 100 : 0;
+      const pctFruit = total > 0 ? (fruit / total) * 100 : 0;
+  
+      const lines = [
+        `${monthName}`,
+        `${p.nf(pctTotal, 0, 1)}% of total drinks (${total})`,
+        `Milk: ${p.nf(pctMilk, 0, 1)}% • Fruit: ${p.nf(pctFruit, 0, 1)}%`
+      ];
+  
+      p.push();
+      p.resetMatrix();
+  
+      p.textFont("monospace");
+      p.textSize(12);
+  
+      let x = p.mouseX + 12;
+      let y = p.mouseY + 12;
+  
+      let w = 0;
+      for (let s of lines) w = p.max(w, p.textWidth(s));
+      const padding = 10;
+      const h = lines.length * 16 + padding;
+  
+      if (x + w + padding * 2 > p.width) x = p.mouseX - (w + padding * 2) - 12;
+      if (y + h > p.height) y = p.mouseY - h - 12;
+  
+      p.noStroke();
+      p.fill(255, 245);
+      p.rect(x, y, w + padding * 2, h, 10);
+  
+      p.fill(30);
+      p.textAlign(p.LEFT, p.TOP);
+      for (let i = 0; i < lines.length; i++) {
+        p.text(lines[i], x + padding, y + 6 + i * 16);
+      }
+  
+      p.pop();
+    }
+  
+    function drawLegend() {
+      p.push();
+      p.resetMatrix();
+  
+      const x = 16, y = p.height - 78;
+  
+      p.noStroke();
+      p.fill(20);
+      p.textSize(12);
+      p.textAlign(p.LEFT, p.TOP);
+      p.text("Legend", x, y);
+  
+      p.fill(140, 110, 80);
+      p.rect(x, y + 22, 14, 14, 3);
+      p.fill(20);
+      p.text("Milk", x + 20, y + 22);
+  
+      p.fill(230, 160, 170);
+      p.rect(x, y + 42, 14, 14, 3);
+      p.fill(20);
+      p.text("Fruit", x + 20, y + 42);
+  
+      p.pop();
+    }
+  
+    function drawSeasonBands(innerR, outerRMax) {
+      const startAngle = -p.HALF_PI;
+      const step = p.TWO_PI / 12;
+  
+      const bandInner = innerR + 6;
+      const bandOuter = outerRMax + 10;
+  
+      const seasons = [
+        { start: 11, end: 1,  col: p.color(210, 225, 245) }, // Winter: Dec-Feb
+        { start: 2,  end: 4,  col: p.color(215, 240, 220) }, // Spring: Mar-May
+        { start: 5,  end: 7,  col: p.color(255, 240, 200) }, // Summer: Jun-Aug
+        { start: 8,  end: 10, col: p.color(240, 220, 200) }  // Fall: Sep-Nov
+      ];
+  
+      p.noStroke();
+  
+      function drawRange(startIdx, endIdx, baseCol) {
+        const fillCol = p.color(p.red(baseCol), p.green(baseCol), p.blue(baseCol), 70);
+        if (startIdx <= endIdx) {
+          const a0 = startAngle + startIdx * step;
+          const a1 = startAngle + (endIdx + 1) * step;
+          drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+        } else {
+          // wrap-around
+          let a0 = startAngle + startIdx * step;
+          let a1 = startAngle + 12 * step;
+          drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+          a0 = startAngle;
+          a1 = startAngle + (endIdx + 1) * step;
+          drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+        }
+      }
+  
+      for (const s of seasons) drawRange(s.start, s.end, s.col);
+    }
+  
+    function drawAnnotation() {
+      p.push();
+      p.resetMatrix();
+  
+      p.fill(70);
+      p.textAlign(p.CENTER);
+      p.textSize(12);
+      p.text(
+        "Radius encodes total drinks per month • Color shows Milk vs Fruit • Hover for details",
+        p.width / 2,
+        p.height - 18
+      );
+  
+      p.pop();
     }
 
-    for (const s of seasons) drawRange(s.start, s.end, s.col);
   }
-
-  function drawAnnotation() {
-    p.push();
-    p.resetMatrix();
-
-    p.fill(70);
-    p.textAlign(p.CENTER);
-    p.textSize(10);
-    p.text(
-      "Radius encodes total drinks per month • Color shows Milk vs Fruit • Hover for details",
-      p.width / 2,
-      p.height - 10
-    );
-
-    p.pop();
-  }
+  p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
