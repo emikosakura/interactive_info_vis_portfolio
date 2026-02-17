@@ -193,6 +193,8 @@ registerSketch('sk5', function (p) {
     p.text("Monthly Distribution", 0, 0);
 
     if (hoveredMonth) drawTooltip(hoveredMonth);
+
+    drawLegend();
   }
 
   p.windowResized = function () { 
@@ -327,6 +329,28 @@ registerSketch('sk5', function (p) {
     p.textAlign(p.LEFT, p.TOP);
     for (let i = 0; i < lines.length; i++) p.text(lines[i], x + pad, y + 6 + i * 16);
 
+    p.pop();
+  }
+
+  function drawLegend() {
+    p.push();
+    p.resetMatrix();
+    const x = 16, y = p.height - 78;
+    p.noStroke();
+    p.fill(20);
+    p.textSize(14);
+    p.textAlign(p.LEFT, p.TOP);
+    p.text("Legend", x, y);
+
+    p.fill(140, 110, 80);
+    p.rect(x, y + 22, 14, 14, 3);
+    p.fill(20);
+    p.text("Milk", x + 20, y + 22);
+
+    p.fill(230, 160, 170);
+    p.rect(x, y + 42, 14, 14, 3);
+    p.fill(20);
+    p.text("Fruit", x + 20, y + 42);
     p.pop();
   }
 });
