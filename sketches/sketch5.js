@@ -78,4 +78,14 @@ registerSketch('sk5', function (p) {
   p.windowResized = function () { 
     p.resizeCanvas(800, 800); 
   };
+
+  // helper functions below
+
+  function isAngleBetween(a, a0, a1) {
+    a = (a + p.TWO_PI) % p.TWO_PI;
+    a0 = (a0 + p.TWO_PI) % p.TWO_PI;
+    a1 = (a1 + p.TWO_PI) % p.TWO_PI;
+    if (a0 <= a1) return a >= a0 && a <= a1;
+    return a >= a0 || a <= a1;
+  }
 });
