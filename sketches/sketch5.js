@@ -191,6 +191,8 @@ registerSketch('sk5', function (p) {
     p.textAlign(p.CENTER, p.CENTER);
     p.textSize(12);
     p.text("Monthly Distribution", 0, 0);
+
+    if (hoveredMonth) drawTooltip(hoveredMonth);
   }
 
   p.windowResized = function () { 
@@ -284,5 +286,47 @@ registerSketch('sk5', function (p) {
     }
 
     for (const s of seasons) drawRange(s.start, s.end, s.col);
+  }
+
+  function drawTooltip(monthName) {
+    const total = monthCounts[monthName];
+    const milk = monthTypeCounts[monthName].Milk;
+    const fruit = monthTypeCounts[monthName].Fruit;
+
+    const pctTotal = totalAllDrinks > 0 ? (total / totalAllDrinks) * 100 : 0;
+    const pctMilk = total > 0 ? (milk / total) * 100 : 0;
+    const pctFruit = total > 0 ? (fruit / total) * 100 : 0;
+
+    const lines = [
+      `${monthName}`,
+      `${p.nf(pctTotal, 0, 1)}% of total drinks (${total})`,
+      `Milk: ${p.nf(pctMilk, 0, 1)}% • Fruit: ${p.nf(pctFruit, 0, 1)}%`
+    ];
+
+    p.push();
+    p.resetMatrix();
+    p.textFont("monospace");
+    p.textSize(12);
+
+    let x = p.mouseX + 12;
+    let y = p.mouseY + 12;
+
+    let w = 0;
+    for (const s of lines) w = p.max(w, p.textWidth(s));
+    const pad = 10;
+    const h = lines.length * 16 + pad;
+
+    if (x + w + pad * 2 > p.width) x = p.mouseX - (w + pad * 2) - 12;
+    if (y + h > p.height) y = p.mouseY - h - 12;
+
+    p.noStroke();
+    p.fill(255, 245);
+    p.rect(x, y, w + pad * 2, h, 10);
+
+    p.fill(30);
+    p.textAlign(p.LEFT, p.TOP);
+    for (let i = 0; i < lines.length; i++) p.text(lines[i], x + pad, y + 6 + i * 16);
+
+    p.pop();
   }
 });
