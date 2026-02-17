@@ -181,6 +181,16 @@ registerSketch('sk5', function (p) {
     }
 
     drawRadialLabels(innerR, outerRMax, maxMonthTotal);
+
+    // center
+    p.noStroke();
+    p.fill(255);
+    p.circle(0, 0, innerR * 2);
+
+    p.fill(30);
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(12);
+    p.text("Monthly Distribution", 0, 0);
   }
 
   p.windowResized = function () { 
