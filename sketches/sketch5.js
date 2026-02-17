@@ -110,6 +110,15 @@ registerSketch('sk5', function (p) {
     return a >= a0 || a <= a1;
   }
 
+  function drawRingSegment(rInner, rOuter, a0, a1, c) {
+    p.noStroke();
+    p.fill(c);
+    p.beginShape();
+    for (let a = a0; a <= a1; a += 0.01) p.vertex(p.cos(a) * rOuter, p.sin(a) * rOuter);
+    for (let a = a1; a >= a0; a -= 0.01) p.vertex(p.cos(a) * rInner, p.sin(a) * rInner);
+    p.endShape(p.CLOSE);
+  }
+
   function drawRadialRings(innerR, outerRMax, maxValue) {
     p.push();
     const outerRMin = innerR + 20;
