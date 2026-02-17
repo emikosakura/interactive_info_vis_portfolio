@@ -179,6 +179,8 @@ registerSketch('sk5', function (p) {
         p.arc(0, 0, (outerR + 3) * 2, (outerR + 3) * 2, a0, a1);
       }
     }
+
+    drawRadialLabels(innerR, outerRMax, maxMonthTotal);
   }
 
   p.windowResized = function () { 
@@ -215,6 +217,30 @@ registerSketch('sk5', function (p) {
     for (let v = step; v <= maxValue; v += step) {
       const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
       p.circle(0, 0, r * 2);
+    }
+    p.pop();
+  }
+
+  function drawRadialLabels(innerR, outerRMax, maxValue) {
+    p.push();
+    const outerRMin = innerR + 20;
+    const step = 20;
+    p.textSize(10);
+    p.textAlign(p.CENTER, p.CENTER);
+    if (maxValue <= 0) { p.pop(); return; }
+    for (let v = step; v <= maxValue; v += step) {
+      const r = p.map(v, 0, maxValue, outerRMin, outerRMax);
+      const s = String(v);
+      const labelX = 0;
+      const labelY = -r;
+      p.push();
+      p.rectMode(p.CENTER);
+      p.noStroke();
+      p.fill(255, 230);
+      p.rect(labelX, labelY, p.textWidth(s) + 12, 16, 7);
+      p.fill(120);
+      p.text(s, labelX, labelY);
+      p.pop();
     }
     p.pop();
   }
