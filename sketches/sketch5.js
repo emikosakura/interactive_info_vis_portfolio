@@ -18,6 +18,8 @@ registerSketch('sk5', function (p) {
 
   p.setup = function () {
     p.createCanvas(800, 800);
+    p.textFont('monospace');
+    p.angleMode(p.RADIANS);
 
     for (const m of months) {
       monthCounts[m] = 0;
@@ -36,44 +38,41 @@ registerSketch('sk5', function (p) {
     const cols = table.columns || [];
     const monthCol = cols.findIndex((c) => norm(c) === "month");
     const typeCol = cols.findIndex((c) => norm(c) === "type");
-  }
 
-  // count rows
-  for (let r = 0; r < table.getRowCount(); r++) {
-    const mRaw = table.getString(r, monthCol);
-    const tRaw = typeCol === -1 ? "" : table.getString(r, typeCol);
+    // count rows
+    for (let r = 0; r < table.getRowCount(); r++) {
+      const mRaw = table.getString(r, monthCol);
+      const tRaw = typeCol === -1 ? "" : table.getString(r, typeCol);
 
-    const mClean = String(mRaw ?? "")
-      .replace(/\uFEFF/g, "")
-      .replace(/\r/g, "")
-      .trim();
+      const mClean = String(mRaw ?? "")
+        .replace(/\uFEFF/g, "")
+        .replace(/\r/g, "")
+        .trim();
 
-    if (!mClean) continue;
+      if (!mClean) continue;
 
-    // normalize month value to match list
-    const mFixed = mClean.charAt(0).toUpperCase() + mClean.slice(1).toLowerCase();
-    if (!months.includes(mFixed)) continue;
+      // normalize month value to match list
+      const mFixed = mClean.charAt(0).toUpperCase() + mClean.slice(1).toLowerCase();
+      if (!months.includes(mFixed)) continue;
 
-    const type = String(tRaw ?? "").replace(/\r/g, "").trim();
+      const type = String(tRaw ?? "").replace(/\r/g, "").trim();
 
-    monthCounts[mFixed]++;
+      monthCounts[mFixed]++;
 
-    if (type === "Milk") monthTypeCounts[mFixed].Milk++;
-    else if (type === "Fruit") monthTypeCounts[mFixed].Fruit++;
-  };
+      if (type === "Milk") monthTypeCounts[mFixed].Milk++;
+      else if (type === "Fruit") monthTypeCounts[mFixed].Fruit++;
+    };
 
-  maxMonthTotal = 0;
-  totalAllDrinks = 0;
-  for (let m of months) {
-    maxMonthTotal = p.max(maxMonthTotal, monthCounts[m]);
-    totalAllDrinks += monthCounts[m];
+    maxMonthTotal = 0;
+    totalAllDrinks = 0;
+    for (let m of months) {
+      maxMonthTotal = p.max(maxMonthTotal, monthCounts[m]);
+      totalAllDrinks += monthCounts[m];
+    }
   }
 
   p.draw = function () {
     p.background(255);
-    p.textFont('monospace');
-    p.angleMode(p.RADIANS);
-
     p.translate(p.width / 2, p.height / 2);
 
     // layout constants
@@ -83,6 +82,15 @@ registerSketch('sk5', function (p) {
     const monthStep = p.TWO_PI / 12;
     const startAngle = -p.HALF_PI;
     const gapFrac = 0.92;
+
+    // title
+    p.push();
+    p.resetMatrix();
+    p.fill(20);
+    p.textSize(16);
+    p.textAlign(p.LEFT, p.TOP);
+    p.text("My Boba Consumption: 2021–2025", 16, 14);
+    p.pop();
   }
 
   p.windowResized = function () { 
