@@ -62,6 +62,13 @@ registerSketch('sk5', function (p) {
     else if (type === "Fruit") monthTypeCounts[mFixed].Fruit++;
   };
 
+  maxMonthTotal = 0;
+  totalAllDrinks = 0;
+  for (let m of months) {
+    maxMonthTotal = p.max(maxMonthTotal, monthCounts[m]);
+    totalAllDrinks += monthCounts[m];
+  }
+
   p.draw = function () {
     p.background(255);
     p.textFont('monospace');
