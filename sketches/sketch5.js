@@ -73,6 +73,16 @@ registerSketch('sk5', function (p) {
     p.background(255);
     p.textFont('monospace');
     p.angleMode(p.RADIANS);
+
+    p.translate(p.width / 2, p.height / 2);
+
+    // layout constants
+    const innerR = 90;
+    const outerRMin = innerR + 20;
+    const outerRMax = 230;
+    const monthStep = p.TWO_PI / 12;
+    const startAngle = -p.HALF_PI;
+    const gapFrac = 0.92;
   }
 
   p.windowResized = function () { 
