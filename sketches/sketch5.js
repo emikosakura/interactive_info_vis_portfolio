@@ -91,6 +91,8 @@ registerSketch('sk5', function (p) {
     p.textAlign(p.LEFT, p.TOP);
     p.text("My Boba Consumption: 2021–2025", 16, 14);
     p.pop();
+
+    drawSeasonBands(innerR, outerRMax);
   }
 
   p.windowResized = function () { 
@@ -105,5 +107,36 @@ registerSketch('sk5', function (p) {
     a1 = (a1 + p.TWO_PI) % p.TWO_PI;
     if (a0 <= a1) return a >= a0 && a <= a1;
     return a >= a0 || a <= a1;
+  }
+
+  function drawSeasonBands(innerR, outerRMax) {
+    const startAngle = -p.HALF_PI;
+    const step = p.TWO_PI / 12;
+
+    const bandInner = innerR + 6;
+    const bandOuter = outerRMax + 10;
+
+    const seasons = [
+      { start: 11, end: 1,  col: p.color(210, 225, 245) },
+      { start: 2,  end: 4,  col: p.color(215, 240, 220) },
+      { start: 5,  end: 7,  col: p.color(255, 240, 200) },
+      { start: 8,  end: 10, col: p.color(240, 220, 200) }
+    ];
+
+    p.noStroke();
+
+    function drawRange(startIdx, endIdx, baseCol) {
+      const fillCol = p.color(p.red(baseCol), p.green(baseCol), p.blue(baseCol), 70);
+      if (startIdx <= endIdx) {
+        const a0 = startAngle + startIdx * step;
+        const a1 = startAngle + (endIdx + 1) * step;
+        drawRingSegment(bandInner, bandOuter, a0, a1, fillCol);
+      } else {
+        drawRingSegment(bandInner, bandOuter, startAngle + startIdx * step, startAngle + 12 * step, fillCol);
+        drawRingSegment(bandInner, bandOuter, startAngle, startAngle + (endIdx + 1) * step, fillCol);
+      }
+    }
+
+    for (const s of seasons) drawRange(s.start, s.end, s.col);
   }
 });
