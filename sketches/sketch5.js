@@ -195,6 +195,7 @@ registerSketch('sk5', function (p) {
     if (hoveredMonth) drawTooltip(hoveredMonth);
 
     drawLegend();
+    drawAnnotation();
   }
 
   p.windowResized = function () { 
@@ -351,6 +352,20 @@ registerSketch('sk5', function (p) {
     p.rect(x, y + 42, 14, 14, 3);
     p.fill(20);
     p.text("Fruit", x + 20, y + 42);
+    p.pop();
+  }
+
+  function drawAnnotation() {
+    p.push();
+    p.resetMatrix();
+    p.fill(70);
+    p.textAlign(p.CENTER);
+    p.textSize(10);
+    p.text(
+      "Radius encodes total drinks per month • Color shows Milk vs Fruit • Hover for details",
+      p.width / 2,
+      p.height - 12
+    );
     p.pop();
   }
 });
