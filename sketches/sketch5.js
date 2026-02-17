@@ -44,5 +44,29 @@ registerSketch('sk5', function (p) {
     const typeCol = cols.findIndex((c) => norm(c) === "type");
   }
 
+  // count rows
+  for (let r = 0; r < table.getRowCount(); r++) {
+    const mRaw = table.getString(r, monthCol);
+    const tRaw = typeCol === -1 ? "" : table.getString(r, typeCol);
+
+    const mClean = String(mRaw ?? "")
+      .replace(/\uFEFF/g, "")
+      .replace(/\r/g, "")
+      .trim();
+
+    if (!mClean) continue;
+
+    // normalize month value to match list
+    const mFixed = mClean.charAt(0).toUpperCase() + mClean.slice(1).toLowerCase();
+    if (!months.includes(mFixed)) continue;
+
+    const type = String(tRaw ?? "").replace(/\r/g, "").trim();
+
+    monthCounts[mFixed]++;
+
+    if (type === "Milk") monthTypeCounts[mFixed].Milk++;
+    else if (type === "Fruit") monthTypeCounts[mFixed].Fruit++;
+  }
+
   p.windowResized = function () { p.resizeCanvas(800, 800); };
 });
