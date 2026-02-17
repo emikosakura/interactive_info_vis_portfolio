@@ -18,12 +18,6 @@ registerSketch('sk5', function (p) {
 
   p.setup = function () {
     p.createCanvas(800, 800);
-  };
-
-  p.draw = function () {
-    p.background(255);
-    p.textFont('monospace');
-    p.angleMode(p.RADIANS);
 
     for (const m of months) {
       monthCounts[m] = 0;
@@ -66,7 +60,15 @@ registerSketch('sk5', function (p) {
 
     if (type === "Milk") monthTypeCounts[mFixed].Milk++;
     else if (type === "Fruit") monthTypeCounts[mFixed].Fruit++;
+  };
+
+  p.draw = function () {
+    p.background(255);
+    p.textFont('monospace');
+    p.angleMode(p.RADIANS);
   }
 
-  p.windowResized = function () { p.resizeCanvas(800, 800); };
+  p.windowResized = function () { 
+    p.resizeCanvas(800, 800); 
+  };
 });
