@@ -120,6 +120,65 @@ registerSketch('sk5', function (p) {
     const inAngle = isAngleBetween(angMouse, a0c, a1c);
     const inRadius = rMouse >= innerR && rMouse <= outerRC;
     if (inAngle && inRadius && totalC > 0) hoveredMonth = candidate;
+
+    // wedges
+    for (let i = 0; i < 12; i++) {
+      const m = months[i];
+      const total = monthCounts[m];
+
+      const a0 = startAngle + i * monthStep;
+      const a1 = a0 + monthStep * gapFrac;
+
+      const outerR = p.map(total, 0, maxMonthTotal || 1, outerRMin, outerRMax);
+
+      const milk = monthTypeCounts[m].Milk;
+      const fruit = monthTypeCounts[m].Fruit;
+
+      const milkFrac = total > 0 ? milk / total : 0;
+      const fruitFrac = total > 0 ? fruit / total : 0;
+
+      let running = a0;
+
+      if (milk > 0) {
+        const seg = (a1 - a0) * milkFrac;
+        drawRingSegment(innerR, outerR, running, running + seg, p.color(140, 110, 80));
+        running += seg;
+      }
+
+      if (fruit > 0) {
+        const seg = (a1 - a0) * fruitFrac;
+        drawRingSegment(innerR, outerR, running, running + seg, p.color(230, 160, 170));
+        running += seg;
+      }
+
+      // outline arc
+      p.noFill();
+      p.stroke(255);
+      p.strokeWeight(2);
+      p.arc(0, 0, outerR * 2, outerR * 2, a0, a1);
+
+      // month label
+      const mid = (a0 + a1) / 2;
+      const labelR = outerRMax + 26;
+      p.push();
+      p.rotate(mid);
+      p.translate(labelR, 0);
+      p.rotate(p.HALF_PI);
+      p.noStroke();
+      p.fill(40);
+      p.textSize(11);
+      p.textAlign(p.CENTER, p.CENTER);
+      p.text(m.slice(0, 3) + ": " + total, 0, 0);
+      p.pop();
+
+      // hover ring
+      if (hoveredMonth === m) {
+        p.noFill();
+        p.stroke(0, 70);
+        p.strokeWeight(2);
+        p.arc(0, 0, (outerR + 3) * 2, (outerR + 3) * 2, a0, a1);
+      }
+    }
   }
 
   p.windowResized = function () { 
