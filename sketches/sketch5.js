@@ -29,6 +29,19 @@ registerSketch('sk5', function (p) {
       monthCounts[m] = 0;
       monthTypeCounts[m] = { Milk: 0, Fruit: 0 };
     }
+
+    // find column indices robustly (handles BOM/CR/spaces)
+    const norm = (s) =>
+      String(s ?? "")
+        .replace(/\uFEFF/g, "")
+        .replace(/\r/g, "")
+        .replace(/\u00A0/g, " ")
+        .trim()
+        .toLowerCase();
+
+    const cols = table.columns || [];
+    const monthCol = cols.findIndex((c) => norm(c) === "month");
+    const typeCol = cols.findIndex((c) => norm(c) === "type");
   }
 
   p.windowResized = function () { p.resizeCanvas(800, 800); };
